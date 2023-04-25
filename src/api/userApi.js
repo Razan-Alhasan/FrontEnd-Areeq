@@ -1,26 +1,50 @@
 import axiosInstance from '../utils/axiosUtils';
 
 export const getCurrentUser = async (id) => {
-    const response = await axiosInstance.get(`/user/${id}`);
-    return await response.json();
-}
+    try {
+        const response = await axiosInstance.get(`/user/${id}`);
+        return response.data;
+    } catch (err) {
+        console.log("get user err :", err);
+    }
+};
 export const getUserById = async (id) => {
-    const response = await axiosInstance.get(`/user/${id}`);
-    return await response.json();
-}
-export const createUser = async () => {
-    const response = await axiosInstance.post('/user');
-    return await response.json();
-}
-export const updateUser = async (id) => {
-    const response = await axiosInstance.put(`/user/${id}`);
-    return await response.json();
-}
+    try {
+        const response = await axiosInstance.get(`/user/${id}`);
+        return response.data;
+    } catch (err) {
+        console.log("get user by id err :", err);
+    }
+};
+export const createUser = async (userData) => {
+    try {
+        const response = await axiosInstance.post('/user', userData);
+        return response.data;
+    } catch (err) {
+        console.log("create user err :", err);
+    }
+};
+export const updateUser = async (id, userData) => {
+    try {
+        const response = await axiosInstance.put(`/user/${id}`, userData);
+        return response.data; user
+    } catch (err) {
+        console.log("update user err :", err);
+    }
+};
 export const removeUser = async (id) => {
-    const response = await axiosInstance.delete(`/user/${id}`);
-    return await response.json();
-}
-export const login = async () => {
-    const response = await axiosInstance.post('/user/login');
-    return await response.json();
-}
+    try {
+        const response = await axiosInstance.delete(`/user/${id}`);
+        return response.data;
+    } catch (err) {
+        console.log("delete user  err :", err);
+    }
+};
+export const login = async (id) => {
+    try {
+        const response = await axiosInstance.post('/user/login');
+        return response.data;
+    } catch (err) {
+        console.log("login err :", err);
+    }
+};

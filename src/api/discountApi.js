@@ -1,22 +1,42 @@
 import axiosInstance from '../utils/axiosUtils';
 
 export const getDiscounts = async () => {
-    const response = await axiosInstance.get('/discounts');
-    return await response.json();
-}
+    try {
+        const response = await axiosInstance.get('/discounts');
+        return response.data;
+    } catch (err) {
+        console.log("get discounts err :", err);
+    }
+};
 export const getDiscountById = async (id) => {
-    const response = await axiosInstance.get(`/discount/${id}`);
-    return await response.json();
-}
-export const createDiscount = async () => {
-    const response = await axiosInstance.post('/discount');
-    return await response.json();
-}
-export const updateById = async (id) => {
-    const response = await axiosInstance.put(`/discount/${id}`);
-    return await response.json();
-}
+    try {
+        const response = await axiosInstance.get(`/discount/${id}`);
+        return response.data;
+    } catch (err) {
+        console.log("get discount by id err :", err);
+    }
+};
+export const createDiscount = async (discountData) => {
+    try {
+        const response = await axiosInstance.post('/discount', discountData);
+        return response.data;
+    } catch (err) {
+        console.log("create discount err :", err);
+    }
+};
+export const updateById = async (id, discountData) => {
+    try {
+        const response = await axiosInstance.put(`/discount/${id}`, discountData);
+        return response.data;
+    } catch (err) {
+        console.log("update discount err :", err);
+    }
+};
 export const deleteDiscount = async (id) => {
-    const response = await axiosInstance.delete(`/discount/${id}`);
-    return await response.json();
-}
+    try {
+        const response = await axiosInstance.delete(`/discount/${id}`);
+        return response.data;
+    } catch (err) {
+        console.log("delete discount  err :", err);
+    }
+};
