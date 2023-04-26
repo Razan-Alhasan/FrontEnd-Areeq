@@ -1,0 +1,31 @@
+
+{
+  "userSchema": {
+    "firstName":{
+      "dbConfig": {
+        "host": "localhost",
+        "port": 27017,
+        "dbName": "firstName",
+        "pattern": "^[a-zA-Z0-9_]+$",
+        "minLength": 3,
+        "maxLength": 20
+      }},
+    "lastName":{
+        "dbConfig": {
+          "host": "localhost",
+          "port": 27017,
+          "dbName": "lastName",
+          "pattern": "^[a-zA-Z0-9_]+$",
+          "minLength": 3,
+          "maxLength": 20
+        }},
+    "email":{
+        "dbConfig": {
+        "host": "localhost",
+        "port": 27017,
+        "dbName": "email",
+        "format": "email"
+    }
+      
+    }
+  }}
