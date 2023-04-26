@@ -51,7 +51,7 @@ export const updateById = async (id, discountData) => {
 export const deleteDiscount = async (id) => {
     try {
         const response = await axiosInstance.delete(`/discount/${id}`);
-        if (response.status === 200) {
+        if (response.status === 204) {
             return response.data;
         }
         throw new Error(`Failed to delete discount with ID ${id}`);
