@@ -6,9 +6,9 @@ export const getOfferById = async (id) => {
         if (response.status === 200) {
             return response.data;
         }
-        throw new Error('Failed to fetch offer with ID ${id}');
+        throw new Error(`Failed to fetch offer with ID ${id}`);
     } catch (error) {
-        console.error('Error fetching offer with ID ${id}:', error);
+        console.error(`Error fetching offer with ID ${id}:`, error);
         throw error;
     }
 };
@@ -31,9 +31,9 @@ export const updateOffer = async (id, offerData) => {
         if (response.status === 200) {
             return response.data;
         }
-        throw new Error('Failed to update offer with ID ${id}');
+        throw new Error(`Failed to update offer with ID ${id}`);
     } catch (error) {
-        console.error('Error updating offer with ID ${id}:', error);
+        console.error(`Error updating offer with ID ${id}:`, error);
         throw error;
     }
 };
@@ -43,9 +43,9 @@ export const deleteOffer = async (id) => {
         if (response.status === 200) {
             return response.data;
         }
-        throw new Error('Failed to delete offer with ID ${id}');
+        throw new Error(`Failed to delete offer with ID ${id}`);
     } catch (error) {
-        console.error('Error delete offer with ID ${id}:', error);
+        console.error(`Error delete offer with ID ${id}:`, error);
         throw error;
     }
 };
@@ -55,7 +55,7 @@ export const getAllOffer = async () => {
         if (response.status === 200) {
             return response.data;
         }
-        throw new Error('Failed to get all offers with ID ${id}');
+        throw new Error(`Failed to get all offers with ID ${id}`);
     } catch (error) {
         console.error('get all offer error:', error);
         throw error;
