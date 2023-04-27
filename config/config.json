@@ -1,0 +1,41 @@
+{
+    "userSchema":{
+        "firstName":{
+            "dbconfig":{
+                "host":"localhost",
+                "port":27017,
+                "dbName0":"firstName",
+                "pattern":"^[a-zA-Z0-9_]+$",
+                "minLength":3,
+                "maxLength":20
+            }},
+        "lastName":{
+                "dbconfig":{
+                "host":"localhost",
+                "port":27017,
+                "dbName0":"lastName",
+                "pattern":"^[a-zA-Z0-9_]+$",
+                "minLength":3,
+                "maxLength":20
+            }},  
+        "email":{
+                "dbconfig":{
+                "host":"localhost",
+                "port":27017,
+                "dbName0":"email",
+                "format":"email"
+            }},
+        "cloudinary":{
+            "dbconfig":{
+            "cloudName": "dhmqo4z5h",
+            "apiKey": "444587321442199",
+            "apiSecret": "a-lWLnpB04pa44wn0TYkzbfHeHU",
+            "useFilename": true,
+            "uniqueFilename": false,
+            "overwrite": false,
+            "invalidate": false,
+            "cdnSubdomain": true,
+            "privateCdn": false,
+            "secure": true
+            }}
+    }}
