@@ -40,7 +40,7 @@ export const updateOffer = async (id, offerData) => {
 export const deleteOffer = async (id) => {
     try {
         const response = await axiosInstance.delete(`/offer/${id}`);
-        if (response.status === 200) {
+        if (response.status === 204) {
             return response.data;
         }
         throw new Error(`Failed to delete offer with ID ${id}`);
