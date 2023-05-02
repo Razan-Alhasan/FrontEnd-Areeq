@@ -20,7 +20,6 @@ export const createOffer = async (offerData) => {
         console.error('Error creating offer:', error);
     }
 };
-
 export const updateOffer = async (id, offerData) => {
     try {
         const response = await axiosInstance.patch(`/offer/${id}`, offerData);
