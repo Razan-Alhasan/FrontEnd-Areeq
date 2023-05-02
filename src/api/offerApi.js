@@ -6,10 +6,8 @@ export const getOfferById = async (id) => {
         if (response.status === 200) {
             return response.data;
         }
-        throw new Error(`Failed to fetch offer with ID ${id}`);
     } catch (error) {
         console.error(`Error fetching offer with ID ${id}:`, error);
-        throw error;
     }
 };
 export const createOffer = async (offerData) => {
@@ -18,10 +16,8 @@ export const createOffer = async (offerData) => {
         if (response.status === 201) {
             return response.data;
         }
-        throw new Error('Failed to create offer');
     } catch (error) {
         console.error('Error creating offer:', error);
-        throw error;
     }
 };
 
@@ -31,10 +27,8 @@ export const updateOffer = async (id, offerData) => {
         if (response.status === 200) {
             return response.data;
         }
-        throw new Error(`Failed to update offer with ID ${id}`);
     } catch (error) {
         console.error(`Error updating offer with ID ${id}:`, error);
-        throw error;
     }
 };
 export const deleteOffer = async (id) => {
@@ -43,10 +37,8 @@ export const deleteOffer = async (id) => {
         if (response.status === 204) {
             return response.data;
         }
-        throw new Error(`Failed to delete offer with ID ${id}`);
     } catch (error) {
         console.error(`Error delete offer with ID ${id}:`, error);
-        throw error;
     }
 };
 export const getAllOffer = async () => {
@@ -55,9 +47,7 @@ export const getAllOffer = async () => {
         if (response.status === 200) {
             return response.data;
         }
-        throw new Error(`Failed to get all offers with ID ${id}`);
     } catch (error) {
         console.error('get all offer error:', error);
-        throw error;
     }
 };
