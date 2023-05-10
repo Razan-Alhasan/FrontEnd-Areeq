@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import  { useRef } from 'react';
 import IconButton from "@mui/material/IconButton";
@@ -7,20 +7,24 @@ import TextField from "@mui/material/TextField";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import "./SellerSignUp.css";
-import { useNavigate } from "react-router-dom";
-/*import { createUser } from "../../api/userApi";*/
-/*import ARButton from '../../components/ARButton/ARButton';*/
+import 'sweetalert2/dist/sweetalert2.min.css';
+import { createUser } from "../../api/userApi";
+import ARButton from '../ARButton/ARButton';
+import InputAdornment from "@mui/material/InputAdornment";
+import Swal from "sweetalert2";
+//  import uploadImage from '../../utils/cloudinaryUtils'
 
 function SellerSignUp() {
-  const password = useRef({});
-  password.current = watch("password", "");
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const {
     register,
+    watch,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const password = useRef({});
+  password.current = watch("password", "");
 
   const handleClickShowPassword = () => {
     setShowPassword(!showPassword);
@@ -34,13 +38,14 @@ function SellerSignUp() {
   const handleMouseDownConfirmPassword = (event) => { 
     event.preventDefault();
   };
-  const navigate = useNavigate();
   const onSubmit = async (data) => {
     try {
-      const token = await createUser("/api/users", data);
+         data.photo="photo";
+        data.isAdmin=false;
+        data.isSeller=true;
+      const token = await createUser( data);
       localStorage.setItem("token", JSON.stringify(token));
-      console.log("Successfully created user!");
-      navigate("/");
+      console.log("Successfully created user!")
       Swal.fire({
         position: "center",
         icon: "success",
@@ -52,29 +57,39 @@ function SellerSignUp() {
       console.log("Failed to creat user:", error);
     }
   };
-
   return (
-    <div className="container container-fluid ">
-      <div className=" container d-flex justify-content-center">
-        <div className=" container w-50 m-5 myborder p-5 rounded">
+        <div className=" container m-5 myborder p-5 rounded">
           <h1>Seller Sign Up</h1>
-
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form >
             <TextField
               fullWidth
-              id="name"
-              label="Name"
-              name="name"
+              id="firstName"
+              label="firstName"
+              name="firstName"
               variant="outlined"
               margin="normal"
-              {...register("name", {
-                required: "Name is required",
+              {...register("firstName", {
+                required: "firstName is required",
               })}
-              error={errors.name ? true : false}
-              helperText={errors.name ? errors.name.message : ""}
+              error={errors.firstName ? true : false}
+              helperText={errors.firstName ? errors.firstName.message : ""}
             />
+            <br></br>
             <TextField
               fullWidth
+              id="lastName"
+              label="lastName"
+              name="lastName"
+              variant="outlined"
+              margin="normal"
+              {...register("lastName", {
+                required: "lastName is required",
+              })}
+              error={errors.lastName ? true : false}
+              helperText={errors.lastName ? errors.lastName.message : ""}
+            />
+            <TextField
+            fullWidth
               id="email"
               label="Email"
               name="email"
@@ -91,10 +106,10 @@ function SellerSignUp() {
               error={errors.email ? true : false}
               helperText={errors.email ? errors.email.message : ""}
             />
-            <FormControl sx={{ mt: 1, mb: 3 }} fullWidth variant="outlined">
+            <br></br>
+            <FormControl sx={{ mt: 1, mb: 3 }}  variant="outlined" fullWidth>
               <TextField
                 id="outlined-adornment-password"
-                fullWidth
                 label="Password"
                 name="password"
                 variant="outlined"
@@ -125,11 +140,11 @@ function SellerSignUp() {
                 helperText={errors.password ? errors.password.message : ""}
               />
             </FormControl>
+            <br></br>
 
-            <FormControl sx={{ mt: 1, mb: 3 }} fullWidth variant="outlined">
+            <FormControl sx={{ mt: 1, mb: 3 }}  variant="outlined" fullWidth>
               <TextField
                 id="outlined-adornment-confirm-password"
-                fullWidth
                 label="Confirm Password"
                 name="confirmPassword"
                 variant="outlined"
@@ -164,8 +179,9 @@ function SellerSignUp() {
                 }
               />
             </FormControl>
+            <br></br>
             <TextField
-              fullWidth
+            fullWidth
               id="link"
               label="Link"
               name="link"
@@ -182,30 +198,23 @@ function SellerSignUp() {
               error={errors.link ? true : false}
               helperText={errors.link ? errors.link.message : ""}
             />
-
-            <FormControl sx={{ mt: 1, mb: 3 }} fullWidth variant="outlined">
+<br></br>
+            <FormControl sx={{ mt: 1, mb: 3 }}  variant="outlined" fullWidth>
               <TextField
                 id="image"
-                fullWidth
                 label="Image"
                 name="image"
                 variant="outlined"
                 margin="normal"
-                type="url"
-                {...register("image", {
-                  required: "Image is required",
-                  pattern: {
-                    value: /\.(gif|jpe?g|png)$/i,
-                    message:
-                      "Invalid image format (only .gif, .jpeg, .jpg, .png allowed)",
-                  },
-                })}
+                type="file"
+  
                 error={errors.image ? true : false}
                 helperText={errors.image ? errors.image.message : ""}
               />
             </FormControl>
+            <br></br>
             <TextField
-              fullWidth
+            fullWidth
               id="description"
               label="Description"
               name="description"
@@ -219,13 +228,12 @@ function SellerSignUp() {
               error={errors.description ? true : false}
               helperText={errors.description ? errors.description.message : ""}
             />
-            <Button className="button" variant="primary" type="submit">
-              Join Our Family
-            </Button>
+            <br></br>
+           {/* <button value="Join Our Family" type="submit" variant = "contained" */}
+            {/* className = "areeq-button" >Join Our Family</button> */}
+            <ARButton text={"join our family"} onClick={handleSubmit((data)=>onSubmit(data))}/>
           </form>
         </div>
-      </div>
-    </div>
   );
 }
 export default SellerSignUp;
