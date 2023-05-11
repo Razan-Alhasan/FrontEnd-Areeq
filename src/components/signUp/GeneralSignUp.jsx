@@ -179,6 +179,8 @@ function GeneralSignUp() {
             </FormControl>
             <br></br>
             <ARButton text={"join us!"} onClick={handleSubmit((data)=>onSubmit(data))}/>
+            <br></br>
+            <br></br>
             <ARButton text={"Are you Seller?!"} onClick={handleSubmit((data)=>onSubmit(data))}/>
           </form>
         </div>
