@@ -12,3 +12,8 @@
         width:80%;
         height: auto;
     }}
+    @media screen and (min-width:10px) and (max-width:930px){
+        .Image1{
+            width:80%;
+            height: auto;
+        }}
