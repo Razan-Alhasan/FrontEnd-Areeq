@@ -6,13 +6,13 @@
 }
 body {
   font-family: 'Times New Roman', Times, serif;
-  margin: 0;
+  /* margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  min-height: 100vh; */
 }
-
+/* 
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -22,6 +22,11 @@ h1 {
   :root {
     color: #213547;
     background-color: #ffffff;
+  } */
+  /* a:hover {
+    color: #747bff;
+  } */
+  /* button {
   }
   /* a:hover {
     color: #747bff;
@@ -29,4 +34,4 @@ h1 {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
