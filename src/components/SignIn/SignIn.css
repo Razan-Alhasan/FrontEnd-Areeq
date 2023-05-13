@@ -1,6 +1,7 @@
 .container{
-    width: 60%;
-    margin: auto;
+    width: 30%;
+    margin: 8% auto;
+    text-align: center;
     background-color: transparent;
     padding: 1% 10% 5%;
     box-shadow: 0px 0px 10px var(--main-color);
@@ -21,7 +22,13 @@ body{
     background-image: url(../../../img/1600w-2dPvR43qY2A.webp);
     background-size: 100% 100%;
     background-repeat: no-repeat;
+    height: 100vh;
 }
 .css-i4bv87-MuiSvgIcon-root{
     color: var(--main-color);
+}
+@media (max-width: 534px) {
+    .container{
+        width: 60%;
+    }
 }
