@@ -14,19 +14,29 @@
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
+<<<<<<< HEAD
     "@hookform/resolvers": "^3.1.0",
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.129",
+=======
+    "@mui/icons-material": "^5.11.16",
+>>>>>>> bd1c146e3f7fbdc78d800d930e78cd45427be798
     "@mui/material": "^5.12.3",
     "axios": "^1.3.5",
+    "dom": "^0.0.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.7.4",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.9",
     "react-router-dom": "^6.11.1",
     "router": "^1.3.8",
     "styled-components": "^5.3.10",
     "sweetalert2": "^11.7.5",
+<<<<<<< HEAD
     "zod": "^3.21.4"
+=======
+    "bootstrap": "^5.2.3"
+>>>>>>> bd1c146e3f7fbdc78d800d930e78cd45427be798
   },
   "devDependencies": {
     "@types/react": "^18.0.28",

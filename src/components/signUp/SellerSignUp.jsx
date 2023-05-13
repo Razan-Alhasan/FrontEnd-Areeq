@@ -74,7 +74,6 @@ function SellerSignUp() {
           error={errors.firstName ? true : false}
           helperText={errors.firstName ? errors.firstName.message : ""}
         />
-        <br></br>
         <TextField
           fullWidth
           id="lastName"
@@ -106,8 +105,7 @@ function SellerSignUp() {
           error={errors.email ? true : false}
           helperText={errors.email ? errors.email.message : ""}
         />
-        <br></br>
-        <FormControl sx={{ mt: 1, mb: 3 }} variant="outlined" fullWidth>
+        <FormControl variant="outlined" fullWidth>
           <TextField
             id="outlined-adornment-password"
             label="Password"
@@ -140,9 +138,8 @@ function SellerSignUp() {
             helperText={errors.password ? errors.password.message : ""}
           />
         </FormControl>
-        <br></br>
 
-        <FormControl sx={{ mt: 1, mb: 3 }} variant="outlined" fullWidth>
+        <FormControl variant="outlined" fullWidth>
           <TextField
             id="outlined-adornment-confirm-password"
             label="Confirm Password"
@@ -175,7 +172,7 @@ function SellerSignUp() {
             }
           />
         </FormControl>
-        <br></br>
+
         <TextField
           fullWidth
           id="link"
@@ -194,8 +191,7 @@ function SellerSignUp() {
           error={errors.link ? true : false}
           helperText={errors.link ? errors.link.message : ""}
         />
-        <br></br>
-        <FormControl sx={{ mt: 1, mb: 3 }} variant="outlined" fullWidth>
+        <FormControl variant="outlined" fullWidth>
           <TextField
             id="image"
             label="Image"
@@ -207,7 +203,6 @@ function SellerSignUp() {
             helperText={errors.image ? errors.image.message : ""}
           />
         </FormControl>
-        <br></br>
         <TextField
           fullWidth
           id="description"
@@ -223,9 +218,6 @@ function SellerSignUp() {
           error={errors.description ? true : false}
           helperText={errors.description ? errors.description.message : ""}
         />
-        <br></br>
-        {/* <button value="Join Our Family" type="submit" variant = "contained" */}
-        {/* className = "areeq-button" >Join Our Family</button> */}
         <ARButton
           text={"join our family"}
           onClick={handleSubmit((data) => onSubmit(data))}
