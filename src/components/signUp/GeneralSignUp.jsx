@@ -40,7 +40,7 @@ function GeneralSignUp() {
     const onSubmit = async (data) => {
       try {
           data.isAdmin=false;
-          data.isSeller=true;
+          data.isSeller=false;
         const token = await createUser( data);
         localStorage.setItem("token", JSON.stringify(token));
         console.log("Successfully created user!")
@@ -72,7 +72,6 @@ function GeneralSignUp() {
               error={errors.firstName ? true : false}
               helperText={errors.firstName ? errors.firstName.message : ""}
             />
-            <br></br>
             <TextField
               fullWidth
               id="lastName"
@@ -104,8 +103,7 @@ function GeneralSignUp() {
               error={errors.email ? true : false}
               helperText={errors.email ? errors.email.message : ""}
             />
-            <br></br>
-            <FormControl sx={{ mt: 1, mb: 3 }}  variant="outlined" fullWidth>
+            <FormControl  variant="outlined" fullWidth>
               <TextField
                 id="outlined-adornment-password"
                 label="Password"
@@ -138,9 +136,7 @@ function GeneralSignUp() {
                 helperText={errors.password ? errors.password.message : ""}
               />
             </FormControl>
-            <br></br>
-
-            <FormControl sx={{ mt: 1, mb: 3 }}  variant="outlined" fullWidth>
+            <FormControl  variant="outlined" fullWidth>
               <TextField
                 id="outlined-adornment-confirm-password"
                 label="Confirm Password"
@@ -177,7 +173,6 @@ function GeneralSignUp() {
                 }
               />
             </FormControl>
-            <br></br>
             <ARButton text={"join us!"} onClick={handleSubmit((data)=>onSubmit(data))}/>
             <br></br>
             <br></br>
