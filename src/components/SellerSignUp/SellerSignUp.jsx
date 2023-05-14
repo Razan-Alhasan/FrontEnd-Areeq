@@ -219,7 +219,7 @@ function SellerSignUp() {
           helperText={errors.description ? errors.description.message : ""}
         />
         <ARButton
-        className="mm1"
+          className="mm1"
           text={"join our family"}
           onClick={handleSubmit((data) => onSubmit(data))}
         />
