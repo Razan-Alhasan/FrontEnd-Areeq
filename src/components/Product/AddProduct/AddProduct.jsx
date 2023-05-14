@@ -4,8 +4,14 @@ import './AddProduct.css';
 import ARButton from '../../ARButton/ARButton';
 import { createProduct } from '../../../api/productsApi';
 import React, { useState } from 'react';
+import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
 
 function AddProduct() {
+  const {
+    register,
+    formState: { errors },
+  } = useForm();
   const [product, setProduct] = useState({
     name: '',
     description: '',
@@ -33,6 +39,13 @@ function AddProduct() {
     try {
       await createProduct(product);
       console.log('Product added successfully!');
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "product created successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
 
       setProduct({
         name: '',
@@ -43,8 +56,17 @@ function AddProduct() {
       });
     } catch (error) {
       console.error('Error adding product:', error);
+      Swal.fire({
+        position: "center",
+        icon: "error",
+        title: "Failed to add product",
+        text: response.error,
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
-  };
+    }
+  
 
   const category = [
     {
@@ -79,7 +101,9 @@ function AddProduct() {
           label="Name"
           color="secondary"
           fullWidth
-          helperText="Please upload your product photo"
+          {...register("name")}
+          error={errors.name ? true : false}
+          helperText={errors.name ? errors.name.message : ""}     
           margin='normal'
           value={product.name}
           onChange={handleInputChange}
@@ -133,7 +157,7 @@ function AddProduct() {
         <ARButton text="Add Product" type="submit" onClick={handleFormSubmit}/>
       </form>
     </div>
-  );
-}
+  );}
+
 
 export default AddProduct;
