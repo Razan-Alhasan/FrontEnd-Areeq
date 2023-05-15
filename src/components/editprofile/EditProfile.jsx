@@ -14,46 +14,21 @@ function EditProfile(){
         formState: { errors },
       } = useForm();
 
-  const onSubmit = async (data) => {
-  try {
-    data.photo = "photo";
-    data.isAdmin = false;
-    data.isSeller = true;
-    const response = await updateUser(id, data); 
-    if (response.status === 200) {
-      console.log("Successfully updated user!");
-      Swal.fire({
-        position: "center",
-        icon: "success",
-        title: "User information updated successfully",
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    } else {
-      console.log("Failed to update user");
-
-      Swal.fire({
-        position: "center",
-        icon: "error",
-        title: "Failed to update user information",
-        text: response.error,
-        showConfirmButton: false,
-        timer: 1500,
-      });
-    }
-  } catch (error) {
-    console.log("Failed to update user:", error);
-
-    Swal.fire({
-      position: "center",
-      icon: "error",
-      title: "An error occurred",
-      text: "Failed to update user information",
-      showConfirmButton: false,
-      timer: 1500,
-    });
-  }
-};
+      const onSubmit = async (id, updateFields) => {
+        try {
+          await updateUser(id, updateFields); 
+          console.log('Successfully updated user!');
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'User information updated successfully',
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } catch (error) {
+          console.log('Failed to update user:', error);
+        }
+      };
 return(
 <div className=" container m-5 myborder p-5 rounded">
           <h1>Edit Your Profil</h1>
@@ -69,7 +44,6 @@ return(
               error={errors.firstName ? true : false}
               helperText={errors.firstName ? errors.firstName.message : ""}
             />
-            <br></br>
             <TextField
               fullWidth
               id="lastName"
@@ -98,7 +72,6 @@ return(
               error={errors.email ? true : false}
               helperText={errors.email ? errors.email.message : ""}
             />
-            <br></br>
             <TextField
             fullWidth
               id="link"
@@ -116,8 +89,7 @@ return(
               error={errors.link ? true : false}
               helperText={errors.link ? errors.link.message : ""}
             />
-<br></br>
-            <FormControl sx={{ mt: 1, mb: 3 }}  variant="outlined" fullWidth>
+            <FormControl  variant="outlined" fullWidth>
               <TextField
                 id="image"
                 label="Image"
@@ -129,7 +101,6 @@ return(
                 helperText={errors.image ? errors.image.message : ""}
               />
             </FormControl>
-            <br></br>
             <TextField
             fullWidth
               id="description"
@@ -143,7 +114,6 @@ return(
               error={errors.description ? true : false}
               helperText={errors.description ? errors.description.message : ""}
             />
-            <br></br>
             <ARButton text={"Save"} onClick={handleSubmit((data)=>onSubmit(data))}/>
             <br></br>
             <br></br>
