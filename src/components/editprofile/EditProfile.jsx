@@ -6,7 +6,7 @@ import "./EditProfile.css";
 import Swal from "sweetalert2";
 import ARButton from '../ARButton/ARButton';
 import { updateUser } from "../../api/userApi";
-
+import Avatar from "react-avatar";
 
 function EditProfile(){
     const {
@@ -34,7 +34,13 @@ return(
 <div className=" container m-5 myborder p-5 rounded">
           <h1>Edit Your Profil</h1>
 <form>
-
+<div className='Avatar'>
+  <Avatar
+      size={150} 
+      round={true} 
+      src="https://thumbs.dreamstime.com/b/add-user-icon-vector-people-new-profile-person-illustration-business-group-symbol-male-195158118.jpg"
+      alt="User Avatar" 
+    /></div>
 <TextField
               fullWidth
               id="firstName"
@@ -116,10 +122,11 @@ return(
               error={errors.description ? true : false}
               helperText={errors.description ? errors.description.message : ""}
             />
+            <div className='button'>
             <ARButton text={"Save"} onClick={handleSubmit((data)=>onSubmit(data))}/>
             <br></br>
             <br></br>
-            <ARButton text={"Change Your Password"} />
+            <ARButton text={"Change Your Password"} /> </div>
 </form>
  </div>
 )}
