@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 import ARButton from '../ARButton/ARButton';
 import { updateUser } from "../../api/userApi";
 
+
 function EditProfile(){
     const {
         register,
@@ -33,6 +34,7 @@ return(
 <div className=" container m-5 myborder p-5 rounded">
           <h1>Edit Your Profil</h1>
 <form>
+
 <TextField
               fullWidth
               id="firstName"
