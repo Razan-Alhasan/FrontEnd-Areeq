@@ -27,5 +27,5 @@ body {
   color: var(--main-color);
 }
 .button{
-  margin: auto;
+text-align: center;
 }

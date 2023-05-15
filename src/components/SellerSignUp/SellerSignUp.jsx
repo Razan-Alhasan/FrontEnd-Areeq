@@ -218,11 +218,11 @@ function SellerSignUp() {
           error={errors.description ? true : false}
           helperText={errors.description ? errors.description.message : ""}
         />
+        <div className="button">
         <ARButton
-        className="button"
           text={"join our family"}
           onClick={handleSubmit((data) => onSubmit(data))}
-        />
+        /></div>
       </form>
     </div>
   );
