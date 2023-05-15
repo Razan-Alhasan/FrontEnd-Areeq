@@ -1,12 +1,13 @@
 import React from 'react';
-import { useForm } from "react-hook-form";
-import FormControl from "@mui/material/FormControl";
+import { useForm,useEffect } from "react-hook-form";
+// import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import "./EditProfile.css";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 import ARButton from '../ARButton/ARButton';
-import { updateUser } from "../../api/userApi";
+// import { updateUser } from "../../api/userApi";
 import Avatar from "react-avatar";
+// import { Link } from 'react-router-dom';
 
 function EditProfile(){
     const {
@@ -15,25 +16,34 @@ function EditProfile(){
         formState: { errors },
       } = useForm();
 
-      const onSubmit = async (id, updateFields) => {
-        try {
-          await updateUser(id, updateFields); 
-          console.log('Successfully updated user!');
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'User information updated successfully',
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        } catch (error) {
-          console.log('Failed to update user:', error);
-        }
-      };
+      const [user, setUser] = useState(null);
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const userId = `/api/users/${userId}`;
+        const response = await axios.get(`/api/users/${userId}`);
+        setUser(response.data);
+      } catch (error) {
+        console.error('Failed to fetch user data:', error);
+      }
+    };
+    fetchUserData();
+  }, []);
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const userId = `/api/users/${userId}`;
+      await axios.post(`/api/users/${userId}`, user);
+      console.log('User information updated successfully');
+    } catch (error) {
+      console.error('Failed to update user:', error);
+    }
+  };
+
 return(
 <div className=" container m-5 myborder p-5 rounded">
           <h1>Edit Your Profil</h1>
-<form>
+<form onSubmit={handleFormSubmit}>
 <div className='Avatar'>
   <Avatar
       size={150} 
@@ -41,6 +51,7 @@ return(
       src="https://thumbs.dreamstime.com/b/add-user-icon-vector-people-new-profile-person-illustration-business-group-symbol-male-195158118.jpg"
       alt="User Avatar" 
     /></div>
+    <a className='A' href="https://www.example.com">Change Your Picture</a>
 <TextField
               fullWidth
               id="firstName"
@@ -97,18 +108,6 @@ return(
               error={errors.link ? true : false}
               helperText={errors.link ? errors.link.message : ""}
             />
-            <FormControl  variant="outlined" fullWidth>
-              <TextField
-                id="image"
-                label="Image"
-                name="image"
-                variant="outlined"
-                margin="normal"
-                type="file"
-                error={errors.image ? true : false}
-                helperText={errors.image ? errors.image.message : ""}
-              />
-            </FormControl>
             <TextField
             fullWidth
               id="description"
