@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
 import IconButton from "@mui/material/IconButton";
@@ -9,7 +9,7 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import "./ChangePassword.css";
 import "sweetalert2/dist/sweetalert2.min.css";
 import InputAdornment from "@mui/material/InputAdornment";
-import Swal from "sweetalert2";
+import axios from 'axios';
 import ARButton from "../ARButton/ARButton";
 
 function ChangePassword() {
@@ -44,20 +44,59 @@ function ChangePassword() {
   const handleMouseDownConfirmPassword = (event) => {
     event.preventDefault();
   };
-
-  const onSubmit = (data) => {
-    console.log(data);
-  };
   const validateConfirmPassword = (value) => {
     const newPassword = getValues("newPassword");
     return value === newPassword || "Passwords do not match";
   };
-
+    const [user, setUser] = useState(null);
+    const [passwordData, setPasswordData] = useState({
+      currentPassword: '',
+      newPassword: '',
+      confirmPassword: '',
+    });
+    // const id =`/api/users/${id}`;
+    useEffect(() => {
+      const fetchUserData = async () => {
+        try {
+          const response = await axios.get(`/api/users/${id}`);
+          setUser(response.data);
+        } catch (error) {
+          console.error('Failed to fetch user data:', error);
+        }
+      };
+      fetchUserData();
+    }, []);
+  
+    const handleChangePassword = async () => {
+      try {
+        await changePassword(id, passwordData.currentPassword, passwordData.newPassword);
+        console.log('Password updated successfully');
+        setPasswordData({
+          currentPassword: '',
+          newPassword: '',
+          confirmPassword: '',
+        });
+      } catch (error) {
+        console.error('Failed to update password:', error);
+      }
+    };
+  
+    const handleFormSubmit = (event) => {
+      event.preventDefault();
+      handleChangePassword();
+    };
+  
+    const handleInputChange = (event) => {
+      setPasswordData({
+        ...passwordData,
+        [event.target.name]: event.target.value,
+      });
+    };
   return (
     <div className=" container m-5 myborder p-5 rounded">
       <h1>Change your password</h1>
-      <form>
-        <FormControl sx={{ mt: 1, mb: 3 }} variant="outlined" fullWidth>
+      <form onSubmit={handleFormSubmit}>
+        <FormControl  variant="outlined" fullWidth>
           <TextField
             id="outlined-adornment-password"
             label="Current Password"
@@ -90,11 +129,11 @@ function ChangePassword() {
             helperText={
               errors.CurrentPassword ? errors.CurrentPassword.message : ""
             }
+            onChange={handleInputChange}
           />
         </FormControl>
-        <br></br>
 
-        <FormControl sx={{ mt: 1, mb: 3 }} variant="outlined" fullWidth>
+        <FormControl  variant="outlined" fullWidth>
           <TextField
             id="outlined-adornment-confirm-password"
             label="New Password"
@@ -125,11 +164,11 @@ function ChangePassword() {
             })}
             error={errors.NewPassword ? true : false}
             helperText={errors.NewPassword ? errors.NewPassword.message : ""}
+            onChange={handleInputChange}
           />
         </FormControl>
-        <br></br>
 
-        <FormControl sx={{ mt: 1, mb: 3 }} variant="outlined" fullWidth>
+        <FormControl  variant="outlined" fullWidth>
           <TextField
             id="ConfirnNewPassword"
             label="Confirn New Password"
@@ -163,8 +202,10 @@ function ChangePassword() {
             helperText={
               errors.ConfirnNewPassword ? errors.ConfirnNewPassword.message : ""
             }
+            onChange={handleInputChange}
           />
         </FormControl>
+        <br></br>
         <br></br>
         <ARButton
           text={"Save"}
