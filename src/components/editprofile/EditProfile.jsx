@@ -1,15 +1,14 @@
-import React from 'react';
-import { useForm,useEffect } from "react-hook-form";
-// import FormControl from "@mui/material/FormControl";
+import React,{ useEffect, useState, useRef } from 'react'; 
+import { useForm } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 import "./EditProfile.css";
-// import Swal from "sweetalert2";
 import ARButton from '../ARButton/ARButton';
-// import { updateUser } from "../../api/userApi";
 import Avatar from "react-avatar";
-// import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function EditProfile(){
+  const fileInputRef = useRef(null);
+  const [state, setState] = useState({});
     const {
         register,
         handleSubmit,
@@ -20,8 +19,7 @@ function EditProfile(){
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const userId = `/api/users/${userId}`;
-        const response = await axios.get(`/api/users/${userId}`);
+        const response = await axios.get(`/api/users/${id}`);
         setUser(response.data);
       } catch (error) {
         console.error('Failed to fetch user data:', error);
@@ -32,12 +30,19 @@ function EditProfile(){
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const userId = `/api/users/${userId}`;
-      await axios.post(`/api/users/${userId}`, user);
+      await axios.put(`/api/users/${id}`, userData);
       console.log('User information updated successfully');
     } catch (error) {
       console.error('Failed to update user:', error);
     }
+  };
+
+  const handleUploadClick = () => {
+    fileInputRef.current.click();
+  };
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
+    console.log('Uploaded file:', file);
   };
 
 return(
@@ -51,7 +56,14 @@ return(
       src="https://thumbs.dreamstime.com/b/add-user-icon-vector-people-new-profile-person-illustration-business-group-symbol-male-195158118.jpg"
       alt="User Avatar" 
     /></div>
-    <a className='A' href="https://www.example.com">Change Your Picture</a>
+    <a className='A' href="#" onClick={handleUploadClick}>Change Your Picture</a>
+    <input
+        ref={fileInputRef}
+        type="file"
+        accept="image/*"
+        onChange={handleFileChange}
+        style={{ display: 'none' }}
+      />
 <TextField
               fullWidth
               id="firstName"
