@@ -1,0 +1,38 @@
+.container{
+    width: 600px;
+    margin: auto;
+    background-color: transparent;
+    padding: 1% 10% 5%;
+    box-shadow: 0px 0px 10px var(--main-color);
+    align-items: center;
+    justify-content: center;
+    display:block;
+    margin-top: 7%;
+}
+h1{
+    margin-bottom: 1%;
+    color: var(--main-color);
+}
+p{
+    margin-bottom: 4%;
+}
+h2{
+    margin-bottom: 1%;
+}
+.control{
+    margin-top: 10%;
+    display: inline-block;
+}
+a:-webkit-any-link {
+    color: var(--main-color) ;
+    text-decoration: none;
+}
+body{
+    background-color: antiquewhite;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.css-i4bv87-MuiSvgIcon-root{
+    color: var(--main-color);
+}
+
