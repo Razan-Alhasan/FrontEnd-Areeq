@@ -4,69 +4,40 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import logo from '/test.png';
-import { FaHome, FaSearch, FaHeart } from 'react-icons/fa';
+import logo from '/aree.png';
+import { FaHome, FaSearch, FaHeart,FaRegUserCircle } from 'react-icons/fa';
 import { AiOutlineUserAdd } from "react-icons/ai";
 import './navbar.css'
 
 function Mynav() {
   return (
-    <Navbar expand="lg" bg='light'>
+    <Navbar expand="lg" >
       <Container fluid>
-        <div className='img'>
-          <Navbar.Brand href="#"><img src={logo} alt='logo' /></Navbar.Brand></div>
+      
+        
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <div className='drop'><Nav
+          <div className='Drop'>
+            <Nav
             className="ml-auto ml-2 ml-lg-0"
             style={{ maxHeight: '100px' }}
             navbarScroll
           >
-            <NavDropdown className="t" title="Home Decor" id="navbarScrollingDropdown">
+            <Nav.Link href="" style={{color:'var(--main-color)'}}>Home Decor</Nav.Link>
+            <Nav.Link href="" style={{color:'var(--main-color)'}}>Clothes</Nav.Link>
+            <Nav.Link href="" style={{color:'var(--main-color)'}}>Accessories</Nav.Link>
+            <Nav.Link href="" style={{color:'var(--main-color)'}}>Soap</Nav.Link>
+            <Nav.Link href="" style={{color:'var(--main-color)'}}>Ceramic</Nav.Link>
+           </Nav ></div>
+           <img src={logo} alt='logo' style={{ width: '30%', height: 'auto' }}className="logo-img"/>
 
-              <NavDropdown.Item href="#">Mirror</NavDropdown.Item>
-              <NavDropdown.Item href="#">Wall decoration</NavDropdown.Item>
-              <NavDropdown.Item href="#">Art posters</NavDropdown.Item>
-              <NavDropdown.Item href="#">Olive oil woods</NavDropdown.Item>
-            </NavDropdown>
-
-            <NavDropdown title="Clothes" id="navbarScrollingDropdown" className="t">
-              <NavDropdown.Item href="#">Palestinian dress</NavDropdown.Item>
-              <NavDropdown.Item href="#"> Hijab</NavDropdown.Item>
-              <NavDropdown.Item href="#">Blouse</NavDropdown.Item>
-            </NavDropdown>
-
-            <NavDropdown title="Accessories" id="navbarScrollingDropdown" className="t">
-              <NavDropdown.Item href="/jewelry">Jewelry</NavDropdown.Item>
-              <NavDropdown.Item href="#"> Medal</NavDropdown.Item>
-              <NavDropdown.Item href="#">Phone covers</NavDropdown.Item>
-            </NavDropdown>
-
-            <NavDropdown title="Soap" id="navbarScrollingDropdown" className="t">
-              <NavDropdown.Item href=""> face soap </NavDropdown.Item>
-              <NavDropdown.Item href="">Body soap </NavDropdown.Item>
-              <NavDropdown.Item href="">Olive oil soap </NavDropdown.Item>
-            </NavDropdown>
-
-            <NavDropdown title="Ceramic" id="navbarScrollingDropdown" className="t">
-              <NavDropdown.Item href="">Cups</NavDropdown.Item>
-              <NavDropdown.Item href="">Bowls </NavDropdown.Item>
-              <NavDropdown.Item href=""> Dishs</NavDropdown.Item>
-            </NavDropdown>
-
-
-          </Nav ></div>
-          <div className='icon'>
+           
+          <div className='Icon' >
             <Nav className='i'>
-              <Nav.Link href="/home" className='b' ><FaHome /></Nav.Link>
-              <Nav.Link href="/save" className='b'>
-                <FaHeart />
-              </Nav.Link>
-              <Nav.Link href="/signin" className='b' >
-                <AiOutlineUserAdd />
-              </Nav.Link>
-              <Nav.Link href="" className='b'>
+              <Nav.Link href="/save" className='B' style={{color:'var(--main-color)'}}><FaHeart /></Nav.Link>
+              <Nav.Link href="/" className='B' style={{color:'var(--main-color)'}}><FaRegUserCircle /></Nav.Link>
+              <Nav.Link href="/signin" className='B' style={{color:'var(--main-color)'}}><AiOutlineUserAdd /></Nav.Link>
+              <Nav.Link href="" className='B'>
                 <Form className="d-flex">
                   <Form.Control
                     type="search"
@@ -74,13 +45,14 @@ function Mynav() {
                     className="me-2"
                     aria-label="Search"
                   />
-                  <Button><FaSearch /></Button>
+                  <Button style={{ backgroundColor: 'grey', border:'none'}}><FaSearch /></Button>
                 </Form>
               </Nav.Link>
             </Nav>
           </div>
-
+          
         </Navbar.Collapse>
+        
       </Container>
     </Navbar>
   );

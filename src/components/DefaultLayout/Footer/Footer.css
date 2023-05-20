@@ -2,8 +2,6 @@
     padding-left: 10px;
 }
 
-
-
 img{
     width:100px;
     height:80px;
@@ -11,5 +9,20 @@ img{
 }
 a{
     text-decoration: none;
+}
+span{
+    color: var(--main-color);
+
+    font-size: 20px;
+
+}
+p{
+    color: var(--main-color);
+    text-align: center;
+
+}
+h5,h2{
+    text-align: center;
+    color: var(--main-color);  
 }
 

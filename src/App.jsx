@@ -12,9 +12,8 @@ function App() {
       < Mynav />
       <p>"</p>
       <Footer/>
-      
+
       </div>
   )
-}
-
+};
 export default App
