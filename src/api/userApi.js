@@ -11,6 +11,22 @@ export const getUserById = async (id) => {
         console.log("get user by id error:", error);
     }
 };
+
+export const getAllUsers = async () => {
+    try {
+      const response = await axiosInstance.get('/users');
+      if (response.status === 200) {
+        return response.data.map(user => ({
+          id: user.id,
+          name: `${user.firstName} ${user.lastName}`,
+          image: user.photo
+        }));
+      }
+    } catch (error) {
+      console.log("get users error:", error);
+    }
+  };
+  
 export const createUser = async (userData) => {
     try {
         const response = await axiosInstance.post('/user', userData);
