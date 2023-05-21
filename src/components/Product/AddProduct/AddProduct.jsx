@@ -12,14 +12,12 @@ import { createProduct } from './../../../api/productsApi'
 function AddProduct() {
   const {
     register,
-    watch,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
   const onSubmit = async (data) => {
     try {
-      data.img = "photo";
       await createProduct(data);
 
       console.log("Successfully created product!");
