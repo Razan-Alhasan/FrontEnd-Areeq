@@ -2,71 +2,48 @@ import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import './AddProduct.css';
 import ARButton from '../../ARButton/ARButton';
-import { createProduct } from '../../../api/productsApi';
-import React, { useState } from 'react';
-import { useForm } from "react-hook-form";
+import React from 'react';
 import Swal from "sweetalert2";
+import 'sweetalert2/dist/sweetalert2.min.css';
+import { useForm } from 'react-hook-form';
+import { createProduct } from './../../../api/productsApi'
+
 
 function AddProduct() {
   const {
     register,
+    watch,
+    handleSubmit,
     formState: { errors },
   } = useForm();
-  const [product, setProduct] = useState({
-    name: '',
-    description: '',
-    category: '',
-    price: '',
-    images: null
-  });
- 
-  const handleImageChange = (event) => {
-    setProduct({
-      ...product,
-      images: [...event.target.files],
-    });
-  };
-  
-  const handleInputChange = (e) => {
-    setProduct({
-      ...product,
-      [e.target.name]: e.target.value,
-    });
-  };
-  
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
+
+  const onSubmit = async (data) => {
     try {
-      await createProduct(product);
-      console.log('Product added successfully!');
+      data.img = "photo";
+      await createProduct(data);
+
+      console.log("Successfully created product!");
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "product created successfully",
+        title: "You have created product successfuly",
         showConfirmButton: false,
-        timer: 1500,
-      });
-
-      setProduct({
-        name: '',
-        description: '',
-        category: '',
-        price: '',
-        images: null
+        timer: 20000,
       });
     } catch (error) {
-      console.error('Error adding product:', error);
+      console.log("Failed to created product:", error);
       Swal.fire({
         position: "center",
         icon: "error",
-        title: "Failed to add product",
-        text: response.error,
+        title: "There is an error",
         showConfirmButton: false,
-        timer: 1500,
+        timer: 20000,
       });
     }
-    }
-  
+  };
+
+
+
 
   const category = [
     {
@@ -94,54 +71,74 @@ function AddProduct() {
   return (
     <div className='container'>
       <h1>Add Product</h1>
-      <form onSubmit={handleFormSubmit}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <TextField
+          fullWidth
           id="name"
-          name="name"
           label="Name"
+          name="Name"
           color="secondary"
-          fullWidth
-          {...register("name")}
+          margin="normal"
+
+          {...register("name", {
+            required: "Name is required",
+          })}
           error={errors.name ? true : false}
-          helperText={errors.name ? errors.name.message : ""}     
-          margin='normal'
-          value={product.name}
-          onChange={handleInputChange}
+          helperText={errors.name ? errors.name.message : ""}
         />
+
         <TextField
+          fullWidth
           id="price"
-          name="price"
           label="Price"
-          type="number"
+          name="Price"
           color="secondary"
-          helperText="Please enter your product price"
-          margin='normal'
-          fullWidth
-          value={product.price}
-          onChange={handleInputChange}
+          margin="normal"
+          type="number" 
+          inputProps={{ min: "0" }} 
+
+          {...register("price", {
+            required: "Price is required",
+            min: {
+              value: 0,
+              message: "Price must be a positive number",
+            },
+          })}
+          error={errors.price ? true : false}
+          helperText={errors.price ? errors.price.message : ""}
         />
+
         <TextField
-          id="description"
-          name="description"
-          label="Description"
-          color="secondary"
-          helperText="Please enter your product description"
-          margin='normal'
           fullWidth
-          value={product.description}
-          onChange={handleInputChange}
+          id="description"
+          label="Description"
+          name="Description"
+          color="secondary"
+          margin="normal"
+          multiline
+          rows={2}
+
+          {...register("description", {
+            required: "description is required",
+          })}
+          error={errors.description ? true : false}
+          helperText={errors.description ? errors.description.message : ""}
         />
+
         <TextField
           id="category"
           name="category"
           select
           color="secondary"
           label="Category"
-          helperText="Please select your product category"
           fullWidth
           margin='normal'
-          value={product.category}
-          onChange={handleInputChange}
+          {...register("category", {
+            required: "Please select category",
+          })}
+          error={errors.category ? true : false}
+          helperText={errors.category ? errors.category.message : ""}
+
         >
           {category.map((option) => (
             <MenuItem key={option.value} value={option.value}>
@@ -150,14 +147,24 @@ function AddProduct() {
           ))}
         </TextField>
         <TextField
-        type="file" 
-        fullWidth
-        margin='normal'
-        multiple onChange={handleImageChange} /> 
-        <ARButton text="Add Product" type="submit" onClick={handleFormSubmit}/>
+          fullWidth
+          id="images"
+          name="image"
+          variant="outlined"
+          margin="normal"
+          type='file'
+          {...register("images", {
+            required: "image is required",
+          })}
+          error={errors.images ? true : false}
+          helperText={errors.images ? errors.images.message : ""}
+        />
+
+        <ARButton text="Add Product" onClick={handleSubmit((data) => onSubmit(data))} />
       </form>
     </div>
-  );}
+  );
+}
 
 
 export default AddProduct;
