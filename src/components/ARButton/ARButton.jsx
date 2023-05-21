@@ -20,6 +20,7 @@ function ARButton(props) {
             variant = "contained"
             className = "areeq-button"
             onClick = {props.onClick}
+            type="props.type"
         >
             {props.text}
         </ArButton>
