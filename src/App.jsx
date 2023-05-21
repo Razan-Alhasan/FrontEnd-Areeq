@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       < Mynav />
-      <p>"</p>
+      
       <Footer/>
 
       </div>

@@ -7,7 +7,8 @@ import './Footer.css'
 
 function Footer() {
   return (
-    <MDBFooter className='text-center text-lg-start text-muted' id='width'>
+
+    <MDBFooter className='text-center text-lg-start text-muted' id='width' bgColor='light' style={{ position: 'fixed', bottom: "0", left: "0", width: '100%' }}>
       <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
         <div className='me-5 d-none d-lg-block'>
           <span>Get connected with us on social networks:</span>
@@ -15,22 +16,22 @@ function Footer() {
 
         <div>
           <a href='' className='me-4 text-reset'>
-            <FaFacebookF style={{color:'var(--main-color)'}}/>
+            <FaFacebookF style={{ color: 'var(--main-color)' }} />
           </a>
           <a href='' className='me-4 text-reset'>
-            <FaTwitter style={{color:'var(--main-color)'}}/>
+            <FaTwitter style={{ color: 'var(--main-color)' }} />
           </a>
           <a href='' className='me-4 text-reset'>
-            <FaGoogle style={{color:'var(--main-color)'}}/>
+            <FaGoogle style={{ color: 'var(--main-color)' }} />
           </a>
           <a href='' className='me-4 text-reset'>
-            <FaInstagram style={{color:'var(--main-color)'}}/>
+            <FaInstagram style={{ color: 'var(--main-color)' }} />
           </a>
           <a href='' className='me-4 text-reset'>
-            <FaLinkedin style={{color:'var(--main-color)'}}/>
+            <FaLinkedin style={{ color: 'var(--main-color)' }} />
           </a>
           <a href='' className='me-4 text-reset'>
-            <FaGithub style={{color:'var(--main-color)'}}/>
+            <FaGithub style={{ color: 'var(--main-color)' }} />
           </a>
         </div>
       </section>
@@ -94,7 +95,7 @@ function Footer() {
         </MDBContainer>
       </section>
 
-      <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.06)' , color:'var(--main-color)',fontSize:'20px'}}>
+      <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.06)', color: 'var(--main-color)', fontSize: '20px' }}>
         © 2023 Copyright:
         <a className='text-reset fw-bold' href='https://Areeq.com/'>
           Areeq.com

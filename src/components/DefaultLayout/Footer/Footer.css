@@ -1,28 +1,27 @@
-.padding{
+.padding {
     padding-left: 10px;
 }
 
-img{
-    width:100px;
-    height:80px;
-   
-}
-a{
+
+a {
     text-decoration: none;
 }
-span{
+
+span {
     color: var(--main-color);
 
     font-size: 20px;
 
 }
-p{
+
+p {
     color: var(--main-color);
     text-align: center;
 
 }
-h5,h2{
-    text-align: center;
-    color: var(--main-color);  
-}
 
+h5,
+h2 {
+    text-align: center;
+    color: var(--main-color);
+}
