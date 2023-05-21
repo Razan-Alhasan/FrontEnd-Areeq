@@ -60,14 +60,16 @@ export const removeUser = async (id) => {
         console.log("remove user error:", error);
     }
 };
-export const login = async (id) => {
+export const login = async (email, password) => {
     try {
-        const response = await axiosInstance.post(`/user/${id}`);
+        const response = await axiosInstance.post("/user/login", {
+            email: email,
+            password: password,
+        });
         if (response.status === 200) {
             return response.data;
         }
-    }
-    catch (error) {
+    } catch (error) {
         console.log("login error:", error);
     }
 };
