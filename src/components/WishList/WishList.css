@@ -6,9 +6,11 @@ h1 {
     padding: 1%;
     text-align: center;
 }
-body{
-        background-color: white !important;
+
+body {
+    background-color: white !important;
 }
+
 .image-list {
     margin: 1% 4% 4%;
     width: 80%;

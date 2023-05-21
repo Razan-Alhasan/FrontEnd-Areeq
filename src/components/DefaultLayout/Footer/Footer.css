@@ -25,3 +25,6 @@ h2 {
     text-align: center;
     color: var(--main-color);
 }
+.footer{
+    margin-bottom: 0px;
+}

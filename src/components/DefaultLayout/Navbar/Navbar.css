@@ -9,7 +9,10 @@
 
   background-color: red;
 }
-
+.logo-img{
+  height: 120px !important;
+  margin-left: 5% !important;
+}
 img {
   margin-left: 7%;
 }

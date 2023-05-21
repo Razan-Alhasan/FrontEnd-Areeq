@@ -21,7 +21,11 @@ img {
 .vertical-image img {
     width: 85%;
     margin: 3% auto;
+<<<<<<< Updated upstream
     height: 160px;
+=======
+    height: 160px !important;
+>>>>>>> Stashed changes
     transition: 1s;
 }
 
@@ -38,7 +42,11 @@ img {
 
 .base-image img {
     width: 80%;
+<<<<<<< Updated upstream
     height: 100%;
+=======
+    height: 100% !important;
+>>>>>>> Stashed changes
     margin: auto;
 }
 
@@ -55,9 +63,15 @@ img {
     font-weight: bold;
 }
 
+<<<<<<< Updated upstream
 .edit {
     position: absolute;
     top: 10%;
+=======
+.edit-icon {
+    position: absolute;
+    top: 25%;
+>>>>>>> Stashed changes
     right: 10%;
     font-size: 25px;
     cursor: pointer;
