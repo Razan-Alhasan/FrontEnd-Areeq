@@ -6,9 +6,10 @@ import "./RateReview.css";
 import Rating from "@mui/material/Rating";
 import Box from "@mui/material/Box";
 import StarIcon from "@mui/icons-material/Star";
-// import Swal from "sweetalert2";
-// import { createReview } from "../../api/reviewsApi";
-import { Icon } from "@mui/material";
+import Swal from "sweetalert2";
+import { createReview } from "../../api/reviewsApi";
+import axios from "axios";
+
 
 const RateReview = () => {
     const [value, setValue] = useState(3);
@@ -28,22 +29,22 @@ const RateReview = () => {
   const handleSubmit = (data) => {
     console.log(data);
   };
-//   const onSubmit = async (data) => {
-//     try{
-//         const token = await createReview(data);
-//         localStorage.setItem("token", JSON.stringify(token));
-//         console.log("Successfuly Created Review!");
-//         Swal.fire({
-//             position: "center",
-//             icon: "success",
-//             title: "You have created review successfuly",
-//             showConfirmButton: false,
-//             timer: 1500,
-//         });
-//     }catch (err){
-//         console.log("Failed to create review:", err);
-//     }
-//   };
+  const onSubmit = async (data) => {
+    try{
+        const token = await createReview(data);
+        localStorage.setItem("token", JSON.stringify(token));
+        console.log("Successfuly Created Review!");
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "You have created review successfuly",
+            showConfirmButton: false,
+            timer: 1500,
+        });
+    }catch (err){
+        console.log("Failed to create review:", err);
+    }
+  };
   return (
     <div className=" container m-5 myborder p-5 rounded">
       <h1>Your Rate Mean A Lot For Us! </h1>
