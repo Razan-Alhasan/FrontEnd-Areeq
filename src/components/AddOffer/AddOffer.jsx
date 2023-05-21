@@ -1,26 +1,36 @@
-import React, { useState } from "react";
-import "sweetalert2/dist/sweetalert2.min.css";
+import React from "react";
+import { useForm } from 'react-hook-form';
 import ARButton from "../ARButton/ARButton";
-import "./RateReview.css";
-import * as React from 'react';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
+import "./AddOffer.css";
+import Select from '@material-ui/core/Select';
+import MenuItem from '@material-ui/core/MenuItem';
+import { FormControl, InputLabel } from '@material-ui/core';
+
 
 const AddOffer = () => {
- 
+    const {
+      handleSubmit,
+      register,
+      formState: { errors },
+    } = useForm();
+  
+    const onSubmit = (data) => {
+      // Handle form submission
+      console.log(data);
+    };
 
   return (
     <div className=" container m-5 myborder p-5 rounded">
       <h1>ADD OFFER</h1>
-    
-      <FormControl fullWidth>
-  <InputLabel id="demo-simple-select-label">Age</InputLabel>
+      <form onSubmit={handleSubmit(onSubmit)}>
+<div>
+<FormControl>
+<InputLabel id="demo-simple-select-label">Add Offer</InputLabel>
   <Select
     labelId="demo-simple-select-label"
     id="demo-simple-select"
-    value={age}
-    label="Age"
+    value={value}
+    label="value"
     onChange={handleChange}
   >
              <MenuItem value={10}>10%</MenuItem>
@@ -31,13 +41,30 @@ const AddOffer = () => {
           <MenuItem value={35}>35%</MenuItem>
           <MenuItem value={40}>40%</MenuItem>
   </Select>
-</FormControl>
+  {errors.values && <span>This field is required</span>}
+  </FormControl>
+  </div>
+
+  <div>
+          <label>Start Date:</label>
+          <input type="date" {...register('startDate', { required: true })} />
+          {errors.startDate && <span>This field is required</span>}
+        </div>
+
+        <div>
+          <label>End Date:</label>
+          <input type="date" {...register('endDate', { required: true })} />
+          {errors.endDate && <span>This field is required</span>}
+        </div>
+
       <br></br>
       <br></br>
       <ARButton
         className="button"
           text={"Send"}
+          type="submit"
         />
+        </form>
     </div>
   );
 };
