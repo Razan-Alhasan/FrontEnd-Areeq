@@ -62,7 +62,7 @@ const ProductPage = () => {
                 </div>
                 <div className='base-image '>
                     <img src={ product.images[0] } />
-                    <div className="info">
+                    <div className="info-base">
                         <h2>{ product.name }</h2>
                         <p>{ product.price } nis</p>
                     </div>

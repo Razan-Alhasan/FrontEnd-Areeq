@@ -51,9 +51,11 @@ const Seller = () => {
                         { user?.description } 
                     </p>
                     <ul className="links">
+                        <a href={`${user.link}`} target='_blank'>
                         <li className="link" >
                             { user?.link }
-                        </li>
+                            </li>
+                        </a>
                     </ul>
                 </div>
             </div>
@@ -64,7 +66,7 @@ const Seller = () => {
                 <Link to='/archive'>
                     <FontAwesomeIcon icon={ faPercent } className='icon-btn' />
                 </Link>
-                <Link to='/add'>
+                <Link to='/FrontEnd-Areeq/add'>
                     <FontAwesomeIcon icon={ faCirclePlus } className='icon-btn' />
                 </Link>
                 <Link to='/FrontEnd-Areeq/archive'>
