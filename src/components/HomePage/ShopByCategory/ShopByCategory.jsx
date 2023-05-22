@@ -1,10 +1,5 @@
 import Link from '@mui/material/Link';
 import Grid from '@mui/material/Grid';
-import ceramic from '../../../public/ceramic.jpg'
-import cloth from '../../../public/cloth.jpg';
-import jewel from '../../../public/jewel.jpg';
-import soap from '../../../public/soap (1).jpg';
-import home from '../../../public/home.jpg';
 import './ShopByCategory.css';
 
 function Category() {
@@ -13,31 +8,31 @@ function Category() {
       <Grid container spacing={1} columns={16} marginTop={0} paddingLeft={0}>
         <Grid lg={8} md={8} sm={16} xs={16}>
           <Link href="/ceramic" underline="none">
-            <img className='Image' src={ceramic} alt='Ceramic'/> 
+            <img className='Image' src='/public/ceramic.jpg' alt='Ceramic'/> 
           </Link>
         </Grid>
         <Grid lg={8} md={8} sm={16} xs={16}>
           <Link href="/Clothes" underline="none">
-            <img className='Image' src={cloth} alt='Clothes'/> 
+            <img className='Image' src= '/public/cloth.jpg' alt='Clothes'/> 
           </Link>
         </Grid>
       </Grid>
 
       <div className='div'>
         <Link href="/Accessories" underline="none">
-          <img className='Image1' src={jewel} alt='Accessories'/> 
+          <img className='Image1' src='/public/jewel.jpg' alt='Accessories'/> 
         </Link>
       </div>
 
       <Grid container spacing={1} columns={16} marginTop={0} paddingLeft={0}>
         <Grid lg={8} md={8} sm={16} xs={16}>
           <Link href="/Soap" underline="none">
-            <img className='Image' src={soap} alt='Soap'/> 
+            <img className='Image' src='/public/soap (1).jpg' alt='Soap'/> 
           </Link>
         </Grid>
         <Grid lg={8} md={8} sm={16} xs={16}>
           <Link href="/Home Decor" underline="none">
-            <img className='Image' src={home} alt='Home Decor'/> 
+            <img className='Image' src='/public/home.jpg' alt='Home Decor'/> 
           </Link>
         </Grid>
       </Grid>

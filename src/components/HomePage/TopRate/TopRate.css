@@ -1,6 +1,8 @@
 .top-rate {
     background-color: var(--background-color);
     height: 100%;
+    width: 100% !important;
+    margin: 5% 0%;
 }
 .card-flex {
     display: flex;
