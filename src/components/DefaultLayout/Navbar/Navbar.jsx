@@ -22,7 +22,7 @@ function Mynav() {
               navbarScroll
             >
               <Nav.Link href="" style={{ color: 'var(--main-color)', fontSize: '17.5px' }}>Home Decor</Nav.Link>
-              <Nav.Link href="" style={{ color: 'var(--main-color)', fontSize: '17.5px', marginLeft: "5px" }}>Clothes</Nav.Link>
+              <Nav.Link href="" style={{ color: 'var(--main-color)', fontSize: '17.5px' }}>Clothes</Nav.Link>
               <Nav.Link href="" style={{ color: 'var(--main-color)', fontSize: '17.5px' }}>Accessories</Nav.Link>
               <Nav.Link href="" style={{ color: 'var(--main-color)', fontSize: '17.5px' }}>Soap</Nav.Link>
               <Nav.Link href="" style={{ color: 'var(--main-color)', fontSize: '17.5px' }}>Ceramic</Nav.Link>

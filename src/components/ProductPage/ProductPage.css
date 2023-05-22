@@ -48,11 +48,13 @@ img {
     cursor: pointer;
 }
 
-.info {
+.info-base {
     margin: auto;
     color: var(--main-color);
     text-align: center;
     font-weight: bold;
+    width: 80%;
+    margin-right: 18%;
 }
 
 .edit-icon {
@@ -68,7 +70,7 @@ img {
     padding: 5% 1%;
     background-color: var(--background-color);
     text-align: center;
-    margin: 10%;
+    margin: 15%;
     border-radius: 10%;
     font-size: 22px;
 }
@@ -86,10 +88,10 @@ h2 {
     text-shadow: 0px 0px 20px var(--button-back-color);
 }
 
-.img {
+/* .img {
     width: 100%;
     height: 150px;
-}
+} */
 
 @media (max-width: 1244px) {
     .description {

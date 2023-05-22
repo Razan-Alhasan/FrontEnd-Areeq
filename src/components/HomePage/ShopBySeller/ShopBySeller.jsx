@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import { getAllUsers } from '../../../api/userApi';
 import'./ShopBySeller.css';
-
+import { Link } from 'react-router-dom';
 const ShopBySeller = () => {
   const [sellers, setSellers] = useState([]);
 
@@ -26,11 +26,11 @@ const ShopBySeller = () => {
       <div className='card-flex row'>
         {sellers && sellers.map((seller) => (
           <Card key={seller.id} style={{ margin: '2%' }} className='col-md-3 col col-8'>
-            {/* <Link to={`/seller/${user.id}`}> */ }
-            <Card.Img variant='top' className='img' style={{ padding: '5%', transition: '1s' }}
+            <Link to={`/FrontEnd-Areeq/seller/${seller.id}`}> 
+            <Card.Img variant='top' className='img-seller' style={{ padding: '5%', transition: '1s' }}
               src={seller.image}
             />
-             {/* </Link> */ }
+             </Link> 
             <Card.Body>
               <Card.Title>{seller.name}</Card.Title>
             </Card.Body>
