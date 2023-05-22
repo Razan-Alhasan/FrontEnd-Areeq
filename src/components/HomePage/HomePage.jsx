@@ -4,6 +4,7 @@ import TopRate from './TopRate/TopRate'
 import ShopBySeller from './ShopBySeller/ShopBySeller';
 import Category from './ShopByCategory/ShopByCategory';
 import './HomePage.css';
+
 const HomePage = () => {
     return (
         <div>
