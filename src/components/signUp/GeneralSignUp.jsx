@@ -57,7 +57,7 @@ function GeneralSignUp() {
     }
   };
   return (
-    <div className=" container-up m-5 myborder p-5 rounded">
+    <div className=" container-up myborder rounded">
       <h1>General Sign Up</h1>
       <form >
         <TextField

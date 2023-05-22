@@ -17,8 +17,8 @@ function Category() {
           </Link>
         </Grid>
       </Grid>
+      <div className='div-s'>
 
-      <div className='div'>
         <Link href="/Accessories" underline="none">
           <img className='Image1' src='/public/jewel.jpg' alt='Accessories'/> 
         </Link>
