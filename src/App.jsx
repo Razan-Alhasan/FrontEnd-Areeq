@@ -11,6 +11,7 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 import DefaultLayout from './components/DefaultLayout/DefaultLayout';
 import Seller from './components/Seller/Seller';
 // import SellerSignUp from './components/SellerSignUp/SellerSignUp';
+import HomePage from './components/HomePage/HomePage';
 
 function App() {
   
@@ -19,20 +20,22 @@ function App() {
       path: 'FrontEnd-Areeq/',
       element: <DefaultLayout />,
       children: [
-        { path: '/FrontEnd-Areeq/seller/product/:productId', element: <ProductPage/> },
-        // { path: 'FrontEnd-Areeq/', element: <HomePage /> },
-        { path: '/FrontEnd-Areeq/signin', element: <SignIn/> },
+        { path: '/FrontEnd-Areeq/seller/product/:productId', element: <ProductPage /> },
+        { path: '/FrontEnd-Areeq/home', element: <HomePage /> },
+        { path: '/FrontEnd-Areeq/signin', element: <SignIn /> },
         // { path: '/FrontEnd-Areeq/signup', element: <GeneralSignUp /> },
         // { path: '/FrontEnd-Areeq/signupseller', element: <SellerSignUp/> },
-        { path: '/FrontEnd-Areeq/wishlist', element: <WishList/> },
-        { path: '/FrontEnd-Areeq/archive', element: <ArchivePage/> },
+        { path: '/FrontEnd-Areeq/wishlist', element: <WishList /> },
+        { path: '/FrontEnd-Areeq/archive', element: <ArchivePage /> },
         { path: '/FrontEnd-Areeq/product/:productId', element: <ProductPage /> },
-        { path: '/FrontEnd-Areeq/seller/:userId', element: <Seller/> },
-        { path: '/FrontEnd-Areeq/*', element: <PageNotFound/> },
+        { path: '/FrontEnd-Areeq/seller/:userId', element: <Seller /> },
+        { path: '/FrontEnd-Areeq/*', element: <PageNotFound /> },
       ]
     }
   ]);
-
-
-
+  return (
+    <RouterProvider router={ routers}/>
+  )
+  
+}
 export default App;

@@ -34,7 +34,7 @@ function Mynav() {
 
           <div className='Icon' >
             <Nav className='i'>
-              <Nav.Link href="/FrontEnd-Areeq/" className='B' style={{ color: 'var(--main-color)', fontSize: '20px' }} ><FaHome /></Nav.Link>
+              <Nav.Link href="/FrontEnd-Areeq/home" className='B' style={{ color: 'var(--main-color)', fontSize: '20px' }} ><FaHome /></Nav.Link>
               <Nav.Link href="/FrontEnd-Areeq/wishlist" className='B' style={{ color: 'var(--main-color)', fontSize: '20px' }}><FaHeart /></Nav.Link>
               
                <Nav.Link href={ `/FrontEnd-Areeq/seller/${userId}` } className='B' style={ { color: 'var(--main-color)', fontSize: '20px' } }><FaRegUserCircle /></Nav.Link>
