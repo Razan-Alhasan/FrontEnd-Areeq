@@ -2,13 +2,14 @@ import React from 'react';
 import { MDBFooter, MDBContainer, MDBRow, MDBCol, MDBIcon } from 'mdb-react-ui-kit';
 import { FaFacebookF, FaTwitter, FaGoogle, FaInstagram, FaGithub, FaLinkedin, FaHome } from 'react-icons/fa';
 import { AiOutlineMail } from "react-icons/ai";
-import { HiPhone } from "react-icons/hi"
+import { HiPhone } from "react-icons/hi";
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+
 import './Footer.css'
 
 function Footer() {
   return (
-
-    <MDBFooter className='text-center text-lg-start text-muted' id='width' bgColor='light' style={{ position: 'fixed', bottom: "0", left: "0", width: '100%' }}>
+    <MDBFooter className='text-center text-lg-start text-muted footer' id='width' bgColor='light' style={{ width: '100%' }}>
       <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
         <div className='me-5 d-none d-lg-block'>
           <span>Get connected with us on social networks:</span>

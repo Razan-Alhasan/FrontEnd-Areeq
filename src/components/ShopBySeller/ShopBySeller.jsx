@@ -26,7 +26,7 @@ const ShopBySeller = () => {
       <div className='card-flex row'>
         {sellers.map((seller) => (
           <Card key={seller.id} style={{ margin: '2%' }} className='col-md-3 col col-8'>
-            {/* <Link to={`/users/${user.id}`}> */ }
+            {/* <Link to={`/seller/${user.id}`}> */ }
             <Card.Img variant='top' className='img' style={{ padding: '5%', transition: '1s' }}
               src={seller.image}
             />

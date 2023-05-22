@@ -1,6 +1,6 @@
-.container{
+.container-up{
     width: 700px;
-    margin: auto;
+    margin: auto ;
     background-color: transparent;
     padding: 1% 10% 5%;
     box-shadow: 0px 0px 10px var(--main-color);

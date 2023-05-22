@@ -44,7 +44,7 @@ const ProductPage = () => {
             {/* <Link to="/product/edit"> */ }
             <div>
                 { product.user && product.user.isSeller && (
-                    <div className="edit">
+                    <div className="edit-icon">
                         <FontAwesomeIcon icon={ faPenToSquare } style={ { color: "#562b08" } } />
                     </div>
                 ) }
