@@ -11,6 +11,7 @@ import PageNotFound from './components/PageNotFound/PageNotFound';
 import DefaultLayout from './components/DefaultLayout/DefaultLayout';
 import Seller from './components/Seller/Seller';
 // import SellerSignUp from './components/SellerSignUp/SellerSignUp';
+
 function App() {
   
   const routers = createBrowserRouter([
@@ -31,12 +32,7 @@ function App() {
       ]
     }
   ]);
-  return (
-    <div className="App">
-      <RouterProvider router={ routers } />
-    </div>
-  );
-}
+
 
 
 export default App;

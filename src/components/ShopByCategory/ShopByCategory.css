@@ -1,0 +1,19 @@
+.Image{
+    width:80%;
+    height: auto;
+}
+
+.Image1{
+    width:45%;
+    height: auto;
+}
+@media screen and (min-width:300px) and (max-width:930px){
+    .Image1{
+        width:80%;
+        height: auto;
+    }}
+    @media screen and (min-width:10px) and (max-width:930px){
+        .Image1{
+            width:80%;
+            height: auto;
+        }}
