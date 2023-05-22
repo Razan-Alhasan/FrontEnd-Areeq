@@ -36,7 +36,7 @@ const SignIn = () => {
             console.log("user:" , res.userId);
             localStorage.setItem('token', token);
             console.log('Successfully logged in!');
-            navigate(`/FrontEnd-Areeq/`);
+            navigate(`/FrontEnd-Areeq/home`);
             Swal.fire({
                 position: 'center',
                 icon: 'success',

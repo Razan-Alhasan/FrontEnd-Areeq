@@ -1,14 +1,16 @@
 .container-up{
+    background-image: url(../../../img/vv.webp);
     width: 700px;
-    margin: auto ;
+    margin: auto !important;
     background-color: transparent;
     padding: 1% 10% 5%;
     box-shadow: 0px 0px 10px var(--main-color);
 }
 
-h1{
+.container-up h1{
     margin-bottom: 10%;
     color: var(--main-color);
+    margin-left: 0px !important;
 }
 .control{
     margin-top: 10%;
@@ -19,7 +21,6 @@ a:-webkit-any-link {
     text-decoration: none;
 }
 body{
-    background-image: url(../../../img/vv.webp);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }

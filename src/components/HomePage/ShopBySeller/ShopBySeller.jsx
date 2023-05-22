@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
-import { getAllUsers } from '../../api/userApi';
+import { getAllUsers } from '../../../api/userApi';
 import'./ShopBySeller.css';
 
 const ShopBySeller = () => {
@@ -24,7 +24,7 @@ const ShopBySeller = () => {
     <div className="ShopBySeller">
       <h2>Shop By Seller</h2>
       <div className='card-flex row'>
-        {sellers.map((seller) => (
+        {sellers && sellers.map((seller) => (
           <Card key={seller.id} style={{ margin: '2%' }} className='col-md-3 col col-8'>
             {/* <Link to={`/seller/${user.id}`}> */ }
             <Card.Img variant='top' className='img' style={{ padding: '5%', transition: '1s' }}

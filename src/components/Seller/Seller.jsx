@@ -32,7 +32,7 @@ const Seller = () => {
     }, []);
     const handleLogout = () => {
         localStorage.removeItem('token');
-        navigate(`/FrontEnd-Areeq/`);
+        navigate(`/FrontEnd-Areeq/home`);
     };
     if (!user) {
         return null;
@@ -64,7 +64,7 @@ const Seller = () => {
                 <Link to='/archive'>
                     <FontAwesomeIcon icon={ faPercent } className='icon-btn' />
                 </Link>
-                <Link to='/archive'>
+                <Link to='/add'>
                     <FontAwesomeIcon icon={ faCirclePlus } className='icon-btn' />
                 </Link>
                 <Link to='/FrontEnd-Areeq/archive'>
