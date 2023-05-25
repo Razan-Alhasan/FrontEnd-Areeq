@@ -7,11 +7,11 @@ import { getProductById } from '../../api/productsApi';
 import { Link, useParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import Review from './Review/Review';
-
+import Discount from '../Discount/Discount';
 const ProductPage = () => {
     const [product, setProduct] = useState(null);
     const [cookies, setCookie] = useCookies(['favorites']);
-    const {productId} = useParams();
+    const { productId } = useParams();
     useEffect(() => {
         const fetchData = async () => {
             const data = await getProductById(productId);
@@ -34,7 +34,6 @@ const ProductPage = () => {
             }
         }
     };
-
 
     if (!product) {
         return null; // Render nothing if product is null
@@ -68,8 +67,14 @@ const ProductPage = () => {
                     </div>
                 </div>
             </div>
+            { product && product.offer && (
+                <div className="discount-product">
+                    <Discount product={ product } />
+                </div>
+            ) }
+
             <div className="description">
-                <p>{ product?.description } </p>
+                <p>{ product.description } </p>
             </div>
             <div className="related-item">
                 <h2>relate item component</h2>
