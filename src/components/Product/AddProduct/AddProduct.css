@@ -1,0 +1,33 @@
+
+.container-s{
+    width: 70%;
+    margin: auto;
+    background-color: transparent;
+    padding: 10px 16% 9%;
+    box-shadow: 0px 0px 10px var(--main-color);
+    
+}
+h1{
+    margin-bottom: 10%;
+    color: var(--main-color);
+}
+
+@media screen and (min-width:300px) and (max-width:930px){
+    .container {
+        width: 90%;
+    }
+    
+        h1{
+            font-size: 30px !important;
+           }
+    }
+   
+  
+  @media screen and (max-width:300px){
+   .container {
+    width: 90%;
+   }
+   h1{
+    font-size: 20px !important;
+   }
+   }
