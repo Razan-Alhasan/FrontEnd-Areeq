@@ -43,7 +43,7 @@ function AddOffer() {
 
 
   return (
-    <div className='container-s'>
+    <div className='container-t'>
       <h1>Add Offer</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         
