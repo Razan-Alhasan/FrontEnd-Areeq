@@ -13,6 +13,7 @@ import Seller from './components/Seller/Seller';
 import SellerSignUp from './components/SellerSignUp/SellerSignUp';
 import HomePage from './components/HomePage/HomePage';
 import AddProduct from './components/Product/AddProduct/AddProduct';
+import AddOffer from './components/AddOffer/AddOffer';
 
 
 function App() {
@@ -31,8 +32,11 @@ function App() {
         { path: '/FrontEnd-Areeq/archive', element: <ArchivePage /> },
         { path: '/FrontEnd-Areeq/product/:productId', element: <ProductPage /> },
         { path: '/FrontEnd-Areeq/seller/:userId', element: <Seller /> },
-        { path: '/FrontEnd-Areeq/add', element: <AddProduct/> },
+        { path: '/FrontEnd-Areeq/addProduct', element: <AddProduct/> },
         { path: '/FrontEnd-Areeq/*', element: <PageNotFound /> },
+        { path: '/FrontEnd-Areeq/addOffer', element: <AddOffer/> },
+
+
       ]
     }
   ]);
