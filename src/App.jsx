@@ -14,6 +14,7 @@ import SellerSignUp from './components/SellerSignUp/SellerSignUp';
 import HomePage from './components/HomePage/HomePage';
 import AddProduct from './components/Product/AddProduct/AddProduct';
 
+
 function App() {
   
   const routers = createBrowserRouter([
@@ -36,7 +37,10 @@ function App() {
     }
   ]);
   return (
+
+
     <RouterProvider router={ routers}/>
+
   )
   
 }
