@@ -16,15 +16,15 @@ import './Seller.css';
 import { useParams } from 'react-router-dom';
 const Seller = () => {
     const navigate = useNavigate();
-    const userId = useParams();
+    const userId = localStorage.getItem('userId');
     const [products, setProducts] = useState([]);
     const [user, setUser] = useState();
     useEffect(() => {
         const fetchData = async () => {
-            const userData = await getUserById(userId.userId);
+            const userData = await getUserById(userId);
             setUser(userData);
             console.log(userData);
-            const data = await getProducts({ user: userId.userId });
+            const data = await getProducts({ user: userId });
             setProducts(data);
             // console.log(data);
         };
@@ -32,6 +32,7 @@ const Seller = () => {
     }, []);
     const handleLogout = () => {
         localStorage.removeItem('token');
+        localStorage.removeItem('userId');
         navigate(`/FrontEnd-Areeq/home`);
     };
     if (!user) {
@@ -41,19 +42,19 @@ const Seller = () => {
         <div>
             <div className="header">
                 <img
-                    src={user?.photo}
+                    src={user.photo}
                     alt="seller photo"
                     className="seller-img"
                 />
                 <div className="info-seller">
-                    <h3 className="name">{ user?.firstName + " " + user?.lastName }</h3>
+                    <h3 className="name">{ user.firstName + " " + user.lastName }</h3>
                     <p className="bio">
                         { user?.description } 
                     </p>
                     <ul className="links">
                         <a href={`${user.link}`} target='_blank'>
                         <li className="link" >
-                            { user?.link }
+                            { user.link }
                             </li>
                         </a>
                     </ul>
