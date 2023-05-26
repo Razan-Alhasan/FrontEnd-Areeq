@@ -12,7 +12,8 @@ import ARButton from '../ARButton/ARButton';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import { Link } from 'react-router-dom';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { getUserById } from '../../api/userApi';
 
 const SignIn = () => {
     const [showPassword, setShowPassword] = useState(false);
@@ -25,13 +26,17 @@ const SignIn = () => {
     const handleMouseDownPassword = (event) => {
         event.preventDefault();
     };
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const onSubmit = async (data) => {
         try {
-            const token = await login(data.email, data.password);
-            localStorage.setItem('token', JSON.stringify(token));
+            const res = await login(data.email, data.password);
+            const token = res.token;
+            const userId = res.userId;
+            localStorage.setItem('userId', userId);
+            console.log("user:" , res.userId);
+            localStorage.setItem('token', token);
             console.log('Successfully logged in!');
-            // navigate('/');
+            navigate(`/FrontEnd-Areeq/`);
             Swal.fire({
                 position: 'center',
                 icon: 'success',
@@ -44,9 +49,9 @@ const SignIn = () => {
         }
     };
     return (
-        <div className='container'>
-            <h1>Sign In</h1>
-            <form onSubmit={ handleSubmit(onSubmit) }>
+        <div className='body-sign'>
+                <h1>Sign In</h1>
+            <form onSubmit={ handleSubmit(onSubmit) } className='container-sign'>
                 <TextField
                     fullWidth
                     id='email'
@@ -102,11 +107,11 @@ const SignIn = () => {
                     />
                 </FormControl>
                 <ARButton text="sign in" type="submit" />
-            </form>
             <br />
-            {/* <Link className='control' to='/SignUp'> */}
-                "Don't have an account? Sign up now!"
-            {/* </Link> */}
+            <Link className='control' to='/FrontEnd-Areeq/signup'> 
+            "Don't have an account? Sign up now!"
+            </Link>
+            </form>
         </div>
     );
 };

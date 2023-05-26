@@ -1,18 +1,14 @@
-.container-sign{
-    width: 40%;
-    text-align: center;
+.container-up{
+    width: 700px;
+    margin: auto ;
     background-color: transparent;
-    padding: 2% 10% 2%;
-    margin: 1% auto 15%;
-    /* height: 80vh; */
+    padding: 1% 10% 5%;
     box-shadow: 0px 0px 10px var(--main-color);
 }
 
-.body-sign h1{
+h1{
     margin-bottom: 10%;
     color: var(--main-color);
-    text-align: center;
-    margin-top: 6%;
 }
 .control{
     margin-top: 10%;
@@ -22,18 +18,11 @@ a:-webkit-any-link {
     color: var(--main-color) ;
     text-decoration: none;
 }
-.body-sign{
-    background-image: url(../../../img/1600w-2dPvR43qY2A.webp);
+body{
+    background-image: url(../../../img/vv.webp);
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    height: 80vh;
-    margin-top: -7%;
 }
 .css-i4bv87-MuiSvgIcon-root{
     color: var(--main-color);
-}
-@media (max-width: 534px) {
-    .container-sign{
-        width: 60%;
-    }
 }

@@ -1,0 +1,27 @@
+.I .nav-link {
+  font-size: 30px;
+
+}
+
+.Image {
+
+  width: 40%;
+
+  background-color: red;
+}
+.logo-img{
+  height: 120px !important;
+  margin-left: 5% !important;
+}
+img {
+  margin-left: 7%;
+}
+
+.Icon {
+  margin-left: 14%;
+}
+
+.Drop {
+  margin-left: 4%;
+
+}

@@ -4,8 +4,8 @@ import TextField from "@mui/material/TextField";
 import "./EditProfile.css";
 import ARButton from '../ARButton/ARButton';
 import Avatar from '@mui/material/Avatar';
-import axiosInstance from "../../utils/axiosUtils";
-
+import {getUserById} from '../../api/userApi';
+import { useParams } from 'react-router';
 function EditProfile(){
   const fileInputRef = useRef(null);
   const [state, setState] = useState({});
@@ -17,10 +17,10 @@ function EditProfile(){
 
       const [user, setUser] = useState(null);
   useEffect(() => {
-
     const fetchUserData = async () => {
       try {
-        const response = await axiosInstance.get(`/api/users/645b8f8c24f69785b8f2171f`);
+
+        const response = await getUserById(userId)
         setUser(response.data);
       } catch (error) {
         console.error('Failed to fetch user data:', error);
