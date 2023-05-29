@@ -8,6 +8,8 @@ import { Link, useParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import Review from './Review/Review';
 import Discount from '../Discount/Discount';
+import Loading from '../Loading/Loading';
+import RelatedItems from './RelatedItems/RelatedItems';
 const ProductPage = () => {
     const [product, setProduct] = useState(null);
     const [cookies, setCookie] = useCookies(['favorites']);
@@ -36,7 +38,7 @@ const ProductPage = () => {
     };
 
     if (!product) {
-        return null; // Render nothing if product is null
+        return <Loading/>
     }
     return (
         <div>
@@ -56,7 +58,7 @@ const ProductPage = () => {
                     <img src={ product.images[3] } />
                     <div className="wish" onClick={ handleFavoriteClick }>
                         <FontAwesomeIcon icon={ faHeart } className='wishlist' />
-                        <span className='wishlist-text'> Add to wishList</span>
+                        <span className='wishlist-text'> Add to wishlist</span>
                     </div>
                 </div>
                 <div className='base-image '>
@@ -77,7 +79,7 @@ const ProductPage = () => {
                 <p>{ product.description } </p>
             </div>
             <div className="related-item">
-                <h2>relate item component</h2>
+                <RelatedItems product={ product } />
             </div>
             <div className="reviews">
                 <Review product={ product } />
