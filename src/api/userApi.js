@@ -51,7 +51,8 @@ export const login = async (email, password) => {
             password: password,
         });
         if (response.status === 200) {
-            return response.data;
+          const { token, userId } = response.data; // Extract the token and user object from the response
+          return { token: token, userId: userId }; // Return the token and user ID in the response
         }
     } catch (error) {
         console.log("login error:", error);
@@ -67,4 +68,18 @@ export const getCurrentUser = async (id) => {
     catch (error) {
         console.log("get current user error:", error);
     }
+};
+export const getAllUsers = async () => {
+  try {
+    const response = await axiosInstance.get("/users");
+    if (response.status === 200) {
+      return response.data.map((user) => ({
+        id: user.id,
+        name: `${user.firstName} ${user.lastName}`,
+        image: user.photo,
+      }));
+    }
+  } catch (error) {
+    console.log("get users error:", error);
+  }
 };

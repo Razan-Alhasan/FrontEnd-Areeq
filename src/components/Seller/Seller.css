@@ -1,0 +1,275 @@
+.seller-img {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin-left: 6% !important;
+    margin-top: 3%;
+}
+
+.bio {
+    width: 30%;
+    margin-left: 2%;
+}
+
+.header {
+    margin-top: 2%;
+}
+
+li {
+    list-style-type: none;
+    padding-top: 1%;
+    color: var(--main-color);
+}
+
+Link {
+    text-decoration: none;
+}
+
+.name {
+    font-size: 25px;
+    margin-left: 7%;
+    font-weight: bold;
+    color: var(--main-color);
+    margin-top: 1%;
+}
+
+.link {
+    margin-left: 5%;
+}
+
+FontAwesomeIcon {
+    color: var(--main-color);
+    margin-left: 2%;
+}
+
+.edit-seller {
+    position: absolute;
+    top: 24%;
+    right: 7%;
+    background-color: var(--background-color);
+    padding: 1% 2%;
+    text-align: center;
+    border-radius: 6%;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: var(--main-color);
+    cursor: pointer;
+    border: 1px solid var(--main-color)
+}
+
+.edit-seller:hover {
+    background-color: white;
+    color: var(--main-color);
+    cursor: pointer;
+    border: 1px solid var(--main-color)
+}
+
+.edit-name {
+    font-size: 16px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 31%;
+    right: 7%;
+    padding: .5% 2%;
+    text-align: center;
+    width: 15%;
+    /* border-radius: 6%; */
+    cursor: pointer;
+}
+
+.image-list {
+    margin: 4%;
+    width: 70%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.info-img {
+    display: flex;
+    justify-content: space-around;
+}
+
+.price {
+    margin-top: 10%;
+}
+
+.image {
+    background-color: var(--background-color);
+    margin: 2%;
+    width: 164px;
+    height: 164px;
+}
+
+.icon {
+    padding-right: 1%;
+
+}
+
+.buttons .icon-btn {
+    margin: 50% 0% 50% 2%;
+    padding: 40% 40%;
+}
+
+.icon-btn {
+    color: var(--main-color);
+    border-radius: 50%;
+    width: 18px;
+    background-color: var(--background-color);
+    height: 20px;
+    border: 1px solid var(--main-color);
+    transition: 1s;
+    /* margin: 2%; */
+}
+
+.icon-btn:hover {
+    background-color: white;
+    border: 1px solid var(--main-color);
+    transform: scale(1.2);
+}
+
+@media (max-width: 1200px) {
+    .buttons {
+        width: 20%;
+    }
+}
+
+@media (max-width: 800px) {
+    .image-list {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .bio {
+        width: 60%;
+    }
+
+    .buttons {
+        width: 25%;
+    }
+}
+
+@media (max-width: 620px) {
+    .buttons {
+        width: 30%;
+    }
+
+
+}
+
+@media (max-width: 500px) {
+    .image-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .bio {
+        width: 80%;
+    }
+
+    .buttons {
+        width: 40%;
+    }
+}
+
+@media (max-width: 400px) {
+    .buttons {
+        width: 40%;
+    }
+
+    .edit-name {
+        font-size: 10px;
+    }
+}
+
+h1 {
+    color: var(--main-color);
+    text-shadow: 0px 0px 20px var(--button-back-color);
+    margin: 2% 4.5%;
+    margin-bottom: 2% !important;
+    padding: 1%;
+    text-align: center;
+}
+
+body {
+    background-color: white !important;
+}
+
+.image-list {
+    margin: 1% 4% 4%;
+    width: 80%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.seller-immg {
+    height: 200px !important;
+    margin-left: 0px;
+}
+
+.price {
+    margin-top: 10%;
+}
+
+.info-img {
+    display: flex;
+    justify-content: space-around;
+}
+
+.price {
+    margin-top: 10%;
+}
+
+.image-item {
+    background-color: var(--background-color);
+    padding: 2%;
+    width: 95%;
+}
+
+.title {
+    font-size: 25px;
+    margin-top: 7%;
+}
+
+Link {
+    text-decoration: none !important;
+}
+
+@media (max-width: 1000px) {
+    .image-list {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+
+    .bio {
+        width: 60%;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 800px) {
+    .image-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .bio {
+        width: 80%;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    .title {
+        font-size: 18px;
+        margin-top: 10%;
+    }
+
+    img {
+        height: 160px !important;
+    }
+}
+

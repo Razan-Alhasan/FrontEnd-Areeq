@@ -1,0 +1,128 @@
+.images {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: 5% auto;
+    height: 70vh;
+}
+
+.vertical-image {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+.vertical-image img {
+    width: 85%;
+    margin: 3% auto;
+    height: 160px !important;
+    transition: 1s;
+}
+
+.vertical-image img:hover {
+    transform: scale(1.6);
+}
+
+.base-image {
+    width: 80%;
+    height: 530px;
+    display: flex;
+    flex-direction: column;
+}
+
+.base-image img {
+    width: 90%;
+    height: 100% !important;
+    margin: auto;
+}
+
+.wish {
+    margin: 1% auto;
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+.info-base {
+    margin: auto;
+    color: var(--main-color);
+    text-align: center;
+    font-weight: bold;
+    width: 80%;
+    margin-right: 18%;
+}
+
+.edit-icon {
+    position: absolute;
+    top: 25%;
+    right: 10%;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.description {
+    color: var(--main-color);
+    padding: 5% 1%;
+    background-color: var(--background-color);
+    text-align: center;
+    margin: 15% 15% 7%;
+    border: 0.3px solid var(--main-color);
+    box-shadow: 0px 0px 10px var(--main-color);
+    font-size: 22px;
+}
+
+.feedback {
+    margin: 4% auto;
+    width: 20%;
+    cursor: pointer;
+}
+
+h2 {
+    font-size: 36px;
+    text-align: center;
+    color: var(--main-color);
+    text-shadow: 0px 0px 20px var(--button-back-color);
+}
+
+.discount-product {
+    position: absolute;
+    top: 207px;
+    left: -31px;
+    width: 6%;
+    padding: 1%;
+
+}
+@media (max-width: 1244px) {
+    .description {
+        margin: 20%;
+    }
+}
+
+@media (max-width: 930px) {
+    .base-image {
+        width: 80%;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .vertical-image img {
+        width: 85%;
+        margin: 3% auto;
+        height: 100px;
+        transition: 1s;
+    }
+
+    .feedback {
+        width: 40%;
+    }
+
+    .description {
+        margin: 10%;
+    }
+}

@@ -1,37 +1,12 @@
 :root {
   --main-color: #562B08;
-  --background-color: #EDE4E0;
+  --background-color: #efe3ce;
+  /* --background-color: #EDE4E0; */
   --button-back-color: #D5B4B4;
   font-family: 'Times New Roman', Times, serif;
 }
+
 body {
   font-family: 'Times New Roman', Times, serif;
-  /* margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh; */
-}
-/* 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  } */
-  /* a:hover {
-    color: #747bff;
-  } */
-  /* button {
-  }
-  /* a:hover {
-    color: #747bff;
-  } */
-  button {
-    background-color: #f9f9f9;
-  }
-} */
