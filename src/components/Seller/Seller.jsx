@@ -17,29 +17,31 @@ import { useParams } from 'react-router-dom';
 import Loading from '../Loading/Loading';
 const Seller = () => {
     const navigate = useNavigate();
-    const userId = useParams();
+    const userId = localStorage.getItem('userId');
     const [products, setProducts] = useState([]);
     const [user, setUser] = useState();
     useEffect(() => {
         const fetchData = async () => {
-            const userData = await getUserById(userId.userId);
+            const userData = await getUserById(userId);
             setUser(userData);
             console.log(userData);
-            const data = await getProducts({ user: userId.userId });
-            setProducts(data);
-            // console.log(data);
+            const data = await getProducts({ user: userId });
+            const filteredProducts = data.filter(product => !product.isArchived );
+            setProducts(filteredProducts);
+            console.log(filteredProducts);
         };
         fetchData();
     }, []);
     const handleLogout = () => {
+
         localStorage.removeItem('token');
+        localStorage.removeItem('userId');
         navigate(`/FrontEnd-Areeq/home`);
     };
     if (!user || !products) {
         return <Loading />;
     }
     return (
-
         user ?
             <div>
                 <div className="header" >
@@ -63,22 +65,22 @@ const Seller = () => {
                     </div>
                 </div>
                 <div className="edit-seller">
-                    <FontAwesomeIcon icon={ faGear } /><span className='edit-name'> Edit profile</span>
+                  <FontAwesomeIcon icon={ faGear } /><span className='edit-name'> Edit profile</span>
                 </div>
                 <div className="buttons">
-                    <Link to='/archive'>
-                        <FontAwesomeIcon icon={ faPercent } className='icon-btn' />
-                    </Link>
-                    <Link to='/FrontEnd-Areeq/add'>
-                        <FontAwesomeIcon icon={ faCirclePlus } className='icon-btn' />
-                    </Link>
-                    <Link to='/FrontEnd-Areeq/archive'>
-                        <FontAwesomeIcon icon={ faBoxArchive } className='icon-btn' />
-                    </Link>
-                    <Link to='/FrontEnd-Areeq/'>
-                        <FontAwesomeIcon icon={ faRightFromBracket } className='icon-btn' onClick={ handleLogout } />
-                    </Link>
-                </div>
+                  <Link to='/archive'>
+                      <FontAwesomeIcon icon={ faPercent } className='icon-btn' />
+                  </Link>
+                  <Link to='/FrontEnd-Areeq/add'>
+                      <FontAwesomeIcon icon={ faCirclePlus } className='icon-btn' />
+                  </Link>
+                  <Link to='/FrontEnd-Areeq/archive'>
+                      <FontAwesomeIcon icon={ faBoxArchive } className='icon-btn' />
+                  </Link>
+                  <Link to='/FrontEnd-Areeq/home'>
+                      <FontAwesomeIcon icon={ faRightFromBracket } className='icon-btn' onClick={ handleLogout } />
+                  </Link>
+              </div>
                 <div>
                     <ImageList sx={ { width: '90%', height: '100%' } } cols={ 5 } className='image-list'>
                         { products.map((product) => (
