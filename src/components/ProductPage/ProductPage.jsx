@@ -7,6 +7,7 @@ import { getProductById } from '../../api/productsApi';
 import { Link, useParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import Review from './Review/Review';
+import Loading from '../Loading/Loading';
 import RelatedItems from './RelatedItems/RelatedItems';
 
 const ProductPage = () => {
@@ -38,7 +39,7 @@ const ProductPage = () => {
 
 
     if (!product) {
-        return null; // Render nothing if product is null
+        return <Loading/>
     }
     return (
         <div>
