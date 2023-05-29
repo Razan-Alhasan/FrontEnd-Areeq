@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBolt } from "@fortawesome/free-solid-svg-icons";
+import { faBolt, faTimes } from "@fortawesome/free-solid-svg-icons";
 import './Discount.css';
 import { getDiscounts } from '../../api/discountApi';
 
@@ -35,6 +35,11 @@ const Discount = ({ product }) => {
             { showWindow && (
                 <div className="discount-window">
                     <>
+                        <FontAwesomeIcon
+                            icon={ faTimes }
+                            className="close-icon"
+                            onClick={ handleDiscountClick }
+                        />
                         <p className='p-code'>Save the code now!<br></br>to win the discount!</p>
                         <span className='code'>Code:{discount[0].code }</span>
                     </>

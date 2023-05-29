@@ -20,7 +20,12 @@
     width: 17%;
     padding: 1%;
 }
-
+.close-icon{
+    cursor: pointer;
+    background-color: var(--main-color);
+    padding: 2%;
+    color: var(--background-color);
+}
 .discount-window {
     margin-left: 40%;
     margin-top: 2%;
