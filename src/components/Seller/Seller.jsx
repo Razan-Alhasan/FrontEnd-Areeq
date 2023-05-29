@@ -32,6 +32,7 @@ const Seller = () => {
         fetchData();
     }, []);
     const handleLogout = () => {
+
         localStorage.removeItem('token');
         localStorage.removeItem('userId');
         navigate(`/FrontEnd-Areeq/home`);
@@ -74,7 +75,7 @@ const Seller = () => {
                 <Link to='/FrontEnd-Areeq/archive'>
                     <FontAwesomeIcon icon={ faBoxArchive } className='icon-btn' />
                 </Link>
-                <Link to='/FrontEnd-Areeq/'>
+                <Link to='/FrontEnd-Areeq/home'>
                     <FontAwesomeIcon icon={ faRightFromBracket } className='icon-btn' onClick={ handleLogout } />
                 </Link>
             </div>
