@@ -7,7 +7,7 @@ import { getProductById } from '../../api/productsApi';
 import { Link, useParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import Review from './Review/Review';
-
+import Loading from '../Loading/Loading';
 const ProductPage = () => {
     const [product, setProduct] = useState(null);
     const [cookies, setCookie] = useCookies(['favorites']);
@@ -37,7 +37,7 @@ const ProductPage = () => {
 
 
     if (!product) {
-        return null; // Render nothing if product is null
+        return <Loading/>
     }
     return (
         <div>
