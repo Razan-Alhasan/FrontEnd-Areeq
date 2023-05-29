@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-import './App.css'
-import EditProfile from './components/editprofile/EditProfile'
-=======
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { createBrowserRouter } from 'react-router-dom';
@@ -16,8 +12,8 @@ import DefaultLayout from './components/DefaultLayout/DefaultLayout';
 import Seller from './components/Seller/Seller';
 // import SellerSignUp from './components/SellerSignUp/SellerSignUp';
 import HomePage from './components/HomePage/HomePage';
+import EditProfile from './components/editprofile/EditProfile';
 
->>>>>>> 08aaf2fe3e1a1d0d164f7c78f253b3da39baf3ad
 function App() {
   
   const routers = createBrowserRouter([
@@ -35,18 +31,14 @@ function App() {
         { path: '/FrontEnd-Areeq/product/:productId', element: <ProductPage /> },
         { path: '/FrontEnd-Areeq/seller/:userId', element: <Seller /> },
         { path: '/FrontEnd-Areeq/*', element: <PageNotFound /> },
+        { path: '/FrontEnd-Areeq/editprofile/EditProfile/:userId', element: <EditProfile /> },
       ]
     }
   ]);
   return (
-<<<<<<< HEAD
-    <div className="App">
-      <EditProfile/>
-    </div>
 
-=======
     <RouterProvider router={ routers}/>
->>>>>>> 08aaf2fe3e1a1d0d164f7c78f253b3da39baf3ad
+    
   )
   
 }
