@@ -7,9 +7,9 @@ import { getProductById } from '../../api/productsApi';
 import { Link, useParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import Review from './Review/Review';
+import Discount from '../Discount/Discount';
 import Loading from '../Loading/Loading';
 import RelatedItems from './RelatedItems/RelatedItems';
-
 const ProductPage = () => {
     const [product, setProduct] = useState(null);
     const [cookies, setCookie] = useCookies(['favorites']);
@@ -36,7 +36,6 @@ const ProductPage = () => {
             }
         }
     };
-
 
     if (!product) {
         return <Loading/>
@@ -70,8 +69,14 @@ const ProductPage = () => {
                     </div>
                 </div>
             </div>
+            { product && product.offer && (
+                <div className="discount-product">
+                    <Discount product={ product } />
+                </div>
+            ) }
+
             <div className="description">
-                <p>{ product?.description } </p>
+                <p>{ product.description } </p>
             </div>
             <div className="related-item">
                 <RelatedItems product={ product } />

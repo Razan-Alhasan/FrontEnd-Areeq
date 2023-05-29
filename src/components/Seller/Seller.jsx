@@ -11,15 +11,19 @@ import { getProducts } from '../../api/productsApi';
 import { getUserById } from '../../api/userApi';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import ARButton from '../ARButton/ARButton';
 // import { getImage } from '../utils/cloundinaryUtils';
 import './Seller.css';
 import { useParams } from 'react-router-dom';
+import Discount from '../Discount/Discount';
 import Loading from '../Loading/Loading';
 const Seller = () => {
     const navigate = useNavigate();
     const userId = localStorage.getItem('userId');
     const [products, setProducts] = useState([]);
     const [user, setUser] = useState();
+    const currentDate = new Date();
+    currentDate.setHours(0, 0, 0, 0);
     useEffect(() => {
         const fetchData = async () => {
             const userData = await getUserById(userId);
@@ -64,6 +68,7 @@ const Seller = () => {
                         </ul>
                     </div>
                 </div>
+                { user.isSeller && <div className="btn-if-seller">
                 <div className="edit-seller">
                   <FontAwesomeIcon icon={ faGear } /><span className='edit-name'> Edit profile</span>
                 </div>
@@ -80,7 +85,8 @@ const Seller = () => {
                   <Link to='/FrontEnd-Areeq/home'>
                       <FontAwesomeIcon icon={ faRightFromBracket } className='icon-btn' onClick={ handleLogout } />
                   </Link>
-              </div>
+              </div> 
+              </div> }
                 <div>
                     <ImageList sx={ { width: '90%', height: '100%' } } cols={ 5 } className='image-list'>
                         { products.map((product) => (
@@ -96,6 +102,11 @@ const Seller = () => {
                                         <h3 className='title'>{ product.name }</h3>
                                         <p className='price'>{ product.price } nis</p>
                                     </div>
+                                    { product && product.offer && (
+                                    <div className="discount-seller-btn">
+                                        <Discount product={ product } />
+                                    </div>
+                                )  }
                                 </ImageListItem>
                             </Link>
                         )) }

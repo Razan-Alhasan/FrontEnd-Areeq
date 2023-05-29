@@ -16,7 +16,6 @@ const ShopBySeller = () => {
         console.error('Error fetching Sellers:', error);
       }
     }
-    
     fetchSellers();
   }, []);
 
