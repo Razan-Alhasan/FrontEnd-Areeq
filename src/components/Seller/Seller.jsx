@@ -25,8 +25,9 @@ const Seller = () => {
             setUser(userData);
             console.log(userData);
             const data = await getProducts({ user: userId });
-            setProducts(data);
-            // console.log(data);
+            const filteredProducts = data.filter(product => !product.isArchived );
+            setProducts(filteredProducts);
+            console.log(filteredProducts);
         };
         fetchData();
     }, []);
@@ -82,7 +83,7 @@ const Seller = () => {
                 <ImageList sx={ { width: '90%', height: '100%' } } cols={ 5 } className='image-list'>
                     { products.map((product) => (
                         <Link to={ `/FrontEnd-Areeq/product/${product._id}` } key={ product.id }>                        
-                       <ImageListItem key={ product.id } className='image-item' >
+                        <ImageListItem key={ product.id } className='image-item' >
                             <img
                                 src={ `${product.images[0]}?w=164&h=164&fit=crop&auto=format` }
                                 srcSet={ `${product.images[0]}?w=164&h=164&fit=crop&auto=format&dpr=2 2x` }
@@ -93,7 +94,8 @@ const Seller = () => {
                                 <h3 className='title'>{ product.name }</h3>
                                 <p className='price'>{ product.price } nis</p>
                             </div>
-                        </ImageListItem>
+                            </ImageListItem> 
+                        
                         </Link>
                     )) }
                 </ImageList>
