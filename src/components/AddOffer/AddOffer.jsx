@@ -19,7 +19,6 @@ function AddOffer() {
       
       const token = await createOffer(data);
       localStorage.setItem("token", JSON.stringify(token));
-      
       console.log("Successfully created offer!");
       Swal.fire({
         position: "center",
