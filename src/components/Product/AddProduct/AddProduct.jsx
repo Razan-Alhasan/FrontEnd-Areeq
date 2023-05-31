@@ -67,7 +67,7 @@ function AddProduct() {
   ];
 
   return (
-    <div className='container'>
+    <div className='container-s'>
       <h1>Add Product</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <TextField

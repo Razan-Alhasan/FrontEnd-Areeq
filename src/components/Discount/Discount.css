@@ -1,0 +1,52 @@
+.discount-btn {
+    background-color: yellow;
+    background-color: #ffde00;
+    padding: 3%;
+    margin: 0% 34%;
+    cursor: pointer;
+}
+
+.discount-seller-btn {
+    position: absolute;
+    top: 0px;
+    left: -85px;
+    width: 100%;
+}
+
+.discount-product {
+    position: absolute;
+    top: 193px;
+    left: 361px;
+    width: 17%;
+    padding: 1%;
+}
+.close-icon{
+    cursor: pointer;
+    background-color: var(--main-color);
+    padding: 2%;
+    color: var(--background-color);
+}
+.discount-window {
+    margin-left: 40%;
+    margin-top: 2%;
+    width: 200px;
+    height: 180px;
+    padding: 3%;
+    background-color: var(--background-color);
+    border: 3px solid var(--main-color);
+    box-shadow: 0px 0px 20px var(--main-color);
+    font-family: 'Times New Roman', Times, serif;
+    cursor: auto;
+}
+
+.code {
+    font-size: 28px;
+    text-align: center;
+    text-shadow: 0px 0px 20px var(--background--butto);
+    cursor: auto;
+}
+
+.p-code {
+    font-size: 20px;
+    cursor: auto;
+}

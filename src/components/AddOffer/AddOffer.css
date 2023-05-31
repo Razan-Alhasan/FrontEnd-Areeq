@@ -1,6 +1,6 @@
 
-.container-s{
-    width: 70%;
+.container-t{
+    width: 60%;
     margin: auto;
     background-color: transparent;
     padding: 10px 16% 9%;
@@ -8,9 +8,11 @@
     
 }
 h1{
+    text-align: center;
     margin-bottom: 10%;
     color: var(--main-color);
 }
+
 
 @media screen and (min-width:300px) and (max-width:930px){
     .container {

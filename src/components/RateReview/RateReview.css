@@ -1,0 +1,47 @@
+.container-rev{
+    width: 700px;
+    margin:  5% auto !important;
+    background-color: transparent;
+    padding: 1% 10% 5%;
+    box-shadow: 0px 0px 10px var(--main-color);
+    align-items: center;
+    justify-content: center;
+    display:block;
+    margin-top: 7%;
+}
+.container-rev h1{
+    margin-bottom: 1%;
+    color: var(--main-color);
+}
+.container-rev p{
+    margin-bottom: 4%;
+    text-align: left;
+}
+.container-rev h2{
+    margin-bottom: 1%;
+    text-align: left;
+}
+.container-rev .control{
+    margin-top: 10%;
+    display: inline-block;
+}
+a:-webkit-any-link {
+    color: var(--main-color) ;
+    text-decoration: none;
+}
+.container-rev body{
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+}
+.css-i4bv87-MuiSvgIcon-root{
+    color: var(--main-color);
+}
+.button-rev{
+    display: flex;
+    justify-content: center;
+}
+.star-rating{
+    margin-left: 5%;
+}
+
+

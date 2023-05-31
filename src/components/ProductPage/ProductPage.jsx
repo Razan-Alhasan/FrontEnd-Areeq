@@ -7,11 +7,13 @@ import { getProductById } from '../../api/productsApi';
 import { Link, useParams } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
 import Review from './Review/Review';
-
+import Discount from '../Discount/Discount';
+import Loading from '../Loading/Loading';
+import RelatedItems from './RelatedItems/RelatedItems';
 const ProductPage = () => {
     const [product, setProduct] = useState(null);
     const [cookies, setCookie] = useCookies(['favorites']);
-    const {productId} = useParams();
+    const { productId } = useParams();
     useEffect(() => {
         const fetchData = async () => {
             const data = await getProductById(productId);
@@ -35,9 +37,8 @@ const ProductPage = () => {
         }
     };
 
-
     if (!product) {
-        return null; // Render nothing if product is null
+        return <Loading/>
     }
     return (
         <div>
@@ -57,31 +58,37 @@ const ProductPage = () => {
                     <img src={ product.images[3] } />
                     <div className="wish" onClick={ handleFavoriteClick }>
                         <FontAwesomeIcon icon={ faHeart } className='wishlist' />
-                        <span className='wishlist-text'> Add to wishList</span>
+                        <span className='wishlist-text'> Add to wishlist</span>
                     </div>
                 </div>
                 <div className='base-image '>
                     <img src={ product.images[0] } />
-                    <div className="info">
+                    <div className="info-base">
                         <h2>{ product.name }</h2>
                         <p>{ product.price } nis</p>
                     </div>
                 </div>
             </div>
+            { product && product.offer && (
+                <div className="discount-product">
+                    <Discount product={ product } />
+                </div>
+            ) }
+
             <div className="description">
-                <p>{ product?.description } </p>
+                <p>{ product.description } </p>
             </div>
             <div className="related-item">
-                <h2>relate item component</h2>
+                <RelatedItems product={ product } />
             </div>
             <div className="reviews">
                 <Review product={ product } />
             </div>
-            {/* <Link to="/feedback"> */ }
-            <div className="feedback">
-                <img src="../../feedback.png" alt="feedback" />
-            </div>
-            {/* </Link> */ }
+            <Link to={ `/FrontEnd-Areeq/review/${product._id}`}> 
+                <div className="feedback">
+                    <img src="../../feedback.png" alt="feedback" />
+                </div>
+            </Link>
         </div>
 
     );

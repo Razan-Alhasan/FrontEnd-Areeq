@@ -29,6 +29,8 @@ const SignIn = () => {
     const navigate = useNavigate();
     const onSubmit = async (data) => {
         try {
+            localStorage.removeItem('token');
+            localStorage.removeItem('userId');
             const res = await login(data.email, data.password);
             const token = res.token;
             const userId = res.userId;
@@ -36,7 +38,7 @@ const SignIn = () => {
             console.log("user:" , res.userId);
             localStorage.setItem('token', token);
             console.log('Successfully logged in!');
-            navigate(`/FrontEnd-Areeq/`);
+            navigate(`/FrontEnd-Areeq/home`);
             Swal.fire({
                 position: 'center',
                 icon: 'success',

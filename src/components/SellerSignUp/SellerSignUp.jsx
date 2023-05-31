@@ -58,7 +58,7 @@ function SellerSignUp() {
     }
   };
   return (
-    <div className=" container m-5 myborder p-5 rounded">
+    <div className=" container-s  myborder  rounded">
       <h1>Seller Sign Up</h1>
       <form>
         <TextField

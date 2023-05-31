@@ -8,6 +8,7 @@ import logo from '/ARR.png';
 import { FaSearch, FaHeart, FaRegUserCircle, FaHome } from 'react-icons/fa';
 import { AiOutlineUserAdd } from "react-icons/ai";
 import './Navbar.css'
+import SearchComponent from './Search/Search';
 function Mynav() {
   const userId = localStorage.getItem('userId');
   return (
@@ -22,7 +23,7 @@ function Mynav() {
               navbarScroll
             >
               <Nav.Link href="" style={{ color: 'var(--main-color)', fontSize: '17.5px' }}>Home Decor</Nav.Link>
-              <Nav.Link href="" style={{ color: 'var(--main-color)', fontSize: '17.5px', marginLeft: "5px" }}>Clothes</Nav.Link>
+              <Nav.Link href="" style={{ color: 'var(--main-color)', fontSize: '17.5px' }}>Clothes</Nav.Link>
               <Nav.Link href="" style={{ color: 'var(--main-color)', fontSize: '17.5px' }}>Accessories</Nav.Link>
               <Nav.Link href="" style={{ color: 'var(--main-color)', fontSize: '17.5px' }}>Soap</Nav.Link>
               <Nav.Link href="" style={{ color: 'var(--main-color)', fontSize: '17.5px' }}>Ceramic</Nav.Link>
@@ -41,8 +42,8 @@ function Mynav() {
               
 
               <Nav.Link href="/FrontEnd-Areeq/signin" className='B' style={{ color: 'var(--main-color)', fontSize: '20px' }}><AiOutlineUserAdd /></Nav.Link>
-
-              <Nav.Link href="/" className='B'>
+    <SearchComponent/>
+              {/* <Nav.Link href="/" className='B'>
                 <Form className="d-flex">
                   <Form.Control
                     type="search"
@@ -52,7 +53,7 @@ function Mynav() {
                   />
                   <Button style={{ backgroundColor: 'grey', border: 'none' }}><FaSearch /></Button>
                 </Form>
-              </Nav.Link>
+              </Nav.Link> */}
             </Nav>
           </div>
 
