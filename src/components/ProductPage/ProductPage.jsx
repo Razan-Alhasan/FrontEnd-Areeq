@@ -84,11 +84,11 @@ const ProductPage = () => {
             <div className="reviews">
                 <Review product={ product } />
             </div>
-            {/* <Link to="/feedback"> */ }
-            <div className="feedback">
-                <img src="../../feedback.png" alt="feedback" />
-            </div>
-            {/* </Link> */ }
+            <Link to={ `/FrontEnd-Areeq/review/${product._id}`}> 
+                <div className="feedback">
+                    <img src="../../feedback.png" alt="feedback" />
+                </div>
+            </Link>
         </div>
 
     );

@@ -29,6 +29,8 @@ const SignIn = () => {
     const navigate = useNavigate();
     const onSubmit = async (data) => {
         try {
+            localStorage.removeItem('token');
+            localStorage.removeItem('userId');
             const res = await login(data.email, data.password);
             const token = res.token;
             const userId = res.userId;
