@@ -76,7 +76,7 @@ const Seller = () => {
                   <Link to='/archive'>
                       <FontAwesomeIcon icon={ faPercent } className='icon-btn' />
                   </Link>
-                  <Link to='/FrontEnd-Areeq/add'>
+                  <Link to='/FrontEnd-Areeq/addProduct'>
                       <FontAwesomeIcon icon={ faCirclePlus } className='icon-btn' />
                   </Link>
                   <Link to='/FrontEnd-Areeq/archive'>

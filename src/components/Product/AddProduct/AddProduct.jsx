@@ -157,8 +157,8 @@ function AddProduct() {
           error={errors.images ? true : false}
           helperText={errors.images ? errors.images.message : ""}
         />
-
-        <ARButton text="Add Product" onClick={handleSubmit((data) => onSubmit(data))} />
+<div className="button-add">
+        <ARButton text="Add Product" onClick={handleSubmit((data) => onSubmit(data))} /></div>
       </form>
     </div>
   );
