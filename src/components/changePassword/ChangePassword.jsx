@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useRef } from "react";
 import IconButton from "@mui/material/IconButton";
@@ -9,10 +9,12 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import "./ChangePassword.css";
 import "sweetalert2/dist/sweetalert2.min.css";
 import InputAdornment from "@mui/material/InputAdornment";
-import axios from 'axios';
 import ARButton from "../ARButton/ARButton";
+import { getUserById, updateUser } from "../../api/userApi";
+import { useParams, useNavigate } from "react-router";
 
 function ChangePassword() {
+  const navigate = useNavigate();
   const [showCurrentPassword, setShowCurrentPassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -21,10 +23,24 @@ function ChangePassword() {
     watch,
     handleSubmit,
     formState: { errors },
-    getValues,
+    setValue,
   } = useForm();
+  const { userId } = useParams();
   const password = useRef({});
   password.current = watch("password", "");
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const user = await getUserById(userId);
+        setValue("password", user.password);
+        setState(user);
+      } catch (error) {
+        console.log("Error fetching user:", error);
+      }
+    };
+    fetchUser();
+  }, [userId, setValue]);
 
   const handleClickshowCurrentPassword = () => {
     setShowCurrentPassword(!showCurrentPassword);
@@ -54,46 +70,22 @@ function ChangePassword() {
       newPassword: '',
       confirmPassword: '',
     });
-    // const id =`/api/users/${id}`;
-    useEffect(() => {
-      const fetchUserData = async () => {
-        try {
-          const response = await axios.get(`/api/users/${id}`);
-          setUser(response.data);
-        } catch (error) {
-          console.error('Failed to fetch user data:', error);
-        }
-      };
-      fetchUserData();
-    }, []);
-  
-    const handleChangePassword = async () => {
+    const handleFormSubmit = async (data) => {
       try {
-        await changePassword(id, passwordData.currentPassword, passwordData.newPassword);
-        console.log('Password updated successfully');
-        setPasswordData({
-          currentPassword: '',
-          newPassword: '',
-          confirmPassword: '',
-        });
+        const updatedUser = {
+          ...state,
+          password: data.password,
+        };
+        const response = await updateUser(userId, updatedUser);
+        console.log("User updated successfully:", response);
+        navigate(`/FrontEnd-Areeq/seller/${userId}`)
       } catch (error) {
-        console.error('Failed to update password:', error);
+        console.log("Error updating user:", error);
       }
     };
-  
-    const handleFormSubmit = (event) => {
-      event.preventDefault();
-      handleChangePassword();
-    };
-  
-    const handleInputChange = (event) => {
-      setPasswordData({
-        ...passwordData,
-        [event.target.name]: event.target.value,
-      });
-    };
+
   return (
-    <div className=" container m-5 myborder p-5 rounded">
+    <div className=" container-change m-5 myborder p-5 rounded">
       <h1>Change your password</h1>
       <form onSubmit={handleFormSubmit}>
         <FormControl  variant="outlined" fullWidth>
@@ -209,7 +201,7 @@ function ChangePassword() {
         <br></br>
         <ARButton
           text={"Save"}
-          onClick={handleSubmit((data) => onSubmit(data))}
+          onClick={ handleSubmit(handleFormSubmit) }
         />
       </form>
     </div>

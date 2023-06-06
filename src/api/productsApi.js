@@ -1,8 +1,8 @@
 import axiosInstance from '../utils/axiosUtils';
 
-export const getProducts = async () => {
+export const getProducts = async (params) => {
     try {
-        const response = await axiosInstance.get('/products');
+        const response = await axiosInstance.get('/products', {params});
         if (response.status === 200) {
             return response.data;
         }

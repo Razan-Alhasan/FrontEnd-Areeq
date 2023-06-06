@@ -1,0 +1,44 @@
+.ShopBySeller {
+    background-color: var(--background-color);
+    height: 100%;
+    width: 100%;
+    margin-top: 3%;
+}
+
+.card-flex {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.card-title {
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 1%;
+}
+
+.card-title:hover {
+    text-shadow: 5px 5px 10px var(--button-back-color);
+}
+
+.ShopBySeller .card {
+    background-color: var(--background-color);
+    box-shadow: 0px 0px 20px var(--button-back-color);
+        width: 18% !important;
+}
+
+h2 {
+    font-size: 36px;
+    text-align: center;
+    color: var(--main-color);
+    text-shadow: 0px 0px 20px var(--button-back-color);
+    padding: 2%;
+}
+
+.img:hover {
+    transform: scale(1.13);
+}
+
+.ShopBySeller .img-seller {
+    height: 70%;
+}
