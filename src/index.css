@@ -1,9 +1,11 @@
 :root {
   --main-color: #562B08;
-  --background-color: #EDE4E0;
+  --background-color: #efe3ce;
+  /* --background-color: #EDE4E0; */
   --button-back-color: #D5B4B4;
   font-family: 'Times New Roman', Times, serif;
 }
+
 body {
   font-family: 'Times New Roman', Times, serif;
 }

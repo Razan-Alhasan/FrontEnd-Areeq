@@ -13,7 +13,7 @@ import Swal from "sweetalert2";
 import ARButton from '../ARButton/ARButton';
 import { createUser } from "../../api/userApi";
 import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 function GeneralSignUp() {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -38,12 +38,16 @@ function GeneralSignUp() {
   const handleMouseDownConfirmPassword = (event) => {
     event.preventDefault();
   };
+  const navigate = useNavigate();
   const onSubmit = async (data) => {
     try {
+      localStorage.removeItem('token');
+      localStorage.removeItem('userId');
       data.isAdmin = false;
       data.isSeller = false;
       const token = await createUser(data);
-      localStorage.setItem("token", JSON.stringify(token));
+      // localStorage.setItem("token", token);
+
       console.log("Successfully created user!");
       Swal.fire({
         position: "center",
@@ -52,12 +56,13 @@ function GeneralSignUp() {
         showConfirmButton: false,
         timer: 1500,
       });
+      navigate(`/FrontEnd-Areeq/signin`);
     } catch (error) {
       console.log("Failed to creat user:", error);
     }
   };
   return (
-    <div className=" container-up m-5 myborder p-5 rounded">
+    <div className=" container-up myborder rounded">
       <h1>General Sign Up</h1>
       <form >
         <TextField

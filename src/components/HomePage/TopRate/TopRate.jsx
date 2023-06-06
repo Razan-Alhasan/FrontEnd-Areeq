@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
-import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './TopRate.css';
 import { getProducts } from '../../../api/productsApi';
+import Discount from '../../Discount/Discount';
 
 const TopRate = () => {
     const [products, setProducts] = useState([]);
@@ -32,7 +31,12 @@ const TopRate = () => {
                         <Card.Img variant='top' className='img' style={ { padding: '5%', transition: '1s' } }
                             src={ product.images[0] }
                         />
-                        </Link> 
+                        </Link>
+                        { product && product.offer && (
+                            <div className="discount-seller-btn">
+                                <Discount product={ product } />
+                            </div>
+                        ) }
                         <Card.Body>
                             <Card.Title>{ product.name }</Card.Title>
                         </Card.Body>
