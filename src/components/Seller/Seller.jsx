@@ -73,7 +73,7 @@ const Seller = () => {
                   <FontAwesomeIcon icon={ faGear } /><span className='edit-name'> Edit profile</span>
                 </div>
                 <div className="buttons">
-                  <Link to='/archive'>
+                  <Link to='/FrontEnd-Areeq/addOffer'>
                       <FontAwesomeIcon icon={ faPercent } className='icon-btn' />
                   </Link>
                   <Link to='/FrontEnd-Areeq/addProduct'>
