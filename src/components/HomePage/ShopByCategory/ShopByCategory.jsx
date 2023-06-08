@@ -24,6 +24,7 @@ function Category() {
         </Link>
       </div>
 
+<div className="div">
       <Grid container spacing={1} columns={16} marginTop={0} paddingLeft={0}>
         <Grid lg={8} md={8} sm={16} xs={16}>
           <Link to="/category/Soap" underline="none">
@@ -35,7 +36,7 @@ function Category() {
             <img className='Image' src='/public/home.jpg' alt='Home Decor'/> 
           </Link>
         </Grid>
-      </Grid>
+      </Grid></div>
     </div>
   );
 }
