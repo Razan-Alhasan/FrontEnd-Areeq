@@ -6,6 +6,7 @@ import logo from '/ARR.png';
 import { FaSearch, FaHeart, FaRegUserCircle, FaHome } from 'react-icons/fa';
 import { AiOutlineUserAdd } from "react-icons/ai";
 import './Navbar.css'
+import axiosInstance from '../../../utils/axiosUtils';
 import { Link } from 'react-router-dom';
 import SearchComponent from './Search/Search';
 function Mynav() {
