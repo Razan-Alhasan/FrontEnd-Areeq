@@ -18,6 +18,17 @@
     }}
     @media screen and (min-width:10px) and (max-width:930px){
         .Image1{
-            width:80%;
+            width:80% !important;
             height: auto;
-        }}
+        }
+        .div-s{
+            width: 100%;
+                    
+            margin-left: 15%;
+        }
+        .div{
+            margin-left: 7%;
+  
+        }
+    }
+        

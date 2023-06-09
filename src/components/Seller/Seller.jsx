@@ -20,7 +20,6 @@ import Loading from '../Loading/Loading';
 const Seller = () => {
     const navigate = useNavigate();
     const { userId } = useParams();
-    // const userId = localStorage.getItem('userId');
     const [products, setProducts] = useState([]);
     const [user, setUser] = useState();
     const currentDate = new Date();
@@ -31,7 +30,7 @@ const Seller = () => {
             setUser(userData);
             console.log(userData);
             const data = await getProducts({ user: userId });
-            const filteredProducts = data.filter(product => !product.isArchived );
+            const filteredProducts = data.filter(product => !product.isArchived);
             setProducts(filteredProducts);
             console.log(filteredProducts);
         };
@@ -75,7 +74,7 @@ const Seller = () => {
                     'error'
                 );
             }
-        })
+        });
     };
     if (!user || !products) {
         return <Loading />;
@@ -104,24 +103,24 @@ const Seller = () => {
                     </div>
                 </div>
                 { user.isSeller && <div className="btn-if-seller">
-                <div className="edit-seller">
-                  <FontAwesomeIcon icon={ faGear } /><span className='edit-name'> Edit profile</span>
-                </div>
-                <div className="buttons">
+                    <div className="edit-seller">
+                        <FontAwesomeIcon icon={ faGear } /><span className='edit-name'> Edit profile</span>
+                    </div>
+                    <div className="buttons">
                         <Link to='/FrontEnd-Areeq/addOffer'>
-                      <FontAwesomeIcon icon={ faPercent } className='icon-btn' />
-                  </Link>
+                            <FontAwesomeIcon icon={ faPercent } className='icon-btn' />
+                        </Link>
                         <Link to='/FrontEnd-Areeq/addProduct'>
-                      <FontAwesomeIcon icon={ faCirclePlus } className='icon-btn' />
-                  </Link>
-                  <Link to='/FrontEnd-Areeq/archive'>
-                      <FontAwesomeIcon icon={ faBoxArchive } className='icon-btn' />
-                  </Link>
-                  <Link to='/FrontEnd-Areeq/home'>
-                      <FontAwesomeIcon icon={ faRightFromBracket } className='icon-btn' onClick={ handleLogout } />
-                  </Link>
-              </div> 
-              </div> }
+                            <FontAwesomeIcon icon={ faCirclePlus } className='icon-btn' />
+                        </Link>
+                        <Link to='/FrontEnd-Areeq/archive'>
+                            <FontAwesomeIcon icon={ faBoxArchive } className='icon-btn' />
+                        </Link>
+                        <Link to='/FrontEnd-Areeq/home'>
+                            <FontAwesomeIcon icon={ faRightFromBracket } className='icon-btn' onClick={ handleLogout } />
+                        </Link>
+                    </div>
+                </div> }
                 <div>
                     <ImageList sx={ { width: '90%', height: '100%' } } cols={ 5 } className='image-list'>
                         { products.map((product) => (
@@ -138,10 +137,10 @@ const Seller = () => {
                                         <p className='price'>{ product.price } nis</p>
                                     </div>
                                     { product && product.offer && (
-                                    <div className="discount-seller-btn">
-                                        <Discount product={ product } />
-                                    </div>
-                                )  }
+                                        <div className="discount-seller-btn">
+                                            <Discount product={ product } />
+                                        </div>
+                                    ) }
                                 </ImageListItem>
                             </Link>
                         )) }

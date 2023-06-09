@@ -5,6 +5,7 @@
     margin-top: 3%;
 }
 
+
 .card-flex {
     display: flex;
     justify-content: center;
@@ -35,7 +36,7 @@ h2 {
     padding: 2%;
 }
 
-.img:hover {
+.img-seller:hover {
     transform: scale(1.13);
 }
 

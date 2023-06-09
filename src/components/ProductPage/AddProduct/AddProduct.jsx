@@ -6,7 +6,7 @@ import React from 'react';
 import Swal from "sweetalert2";
 import 'sweetalert2/dist/sweetalert2.min.css';
 import { useForm } from 'react-hook-form';
-import { createProduct } from '../../../api/productsApi';
+import { createProduct } from '../../../api/productsApi'
 
 
 function AddProduct() {
@@ -18,9 +18,8 @@ function AddProduct() {
 
   const onSubmit = async (data) => {
     try {
-      await createProduct(data);
-
-      console.log("Successfully created product!");
+      const product = await createProduct(data);
+      console.log('Successfully created product:', product);
       Swal.fire({
         position: "center",
         icon: "success",
@@ -45,22 +44,27 @@ function AddProduct() {
 
   const category = [
     {
+      name: 'Clothes',
       value: 'Clothes',
       label: 'Clothes',
     },
     {
+      name: 'Soap',
       value: 'Soap',
       label: 'Soap',
     },
     {
+      name: 'Accessories',
       value: 'Accessories',
       label: 'Accessories',
     },
     {
+      name: 'Ceramic',
       value: 'Ceramic',
       label: 'Ceramic',
     },
     {
+      name: 'Home Decor',
       value: 'Home Decor',
       label: 'Home Decor',
     },
@@ -74,7 +78,7 @@ function AddProduct() {
           fullWidth
           id="name"
           label="Name"
-          name="Name"
+          name="name"
           color="secondary"
           margin="normal"
 
@@ -89,11 +93,11 @@ function AddProduct() {
           fullWidth
           id="price"
           label="Price"
-          name="Price"
+          name="price"
           color="secondary"
           margin="normal"
           type="number"
-          inputProps={ { min: "0" } }
+          inputProps={{ min: "0" }}
 
           { ...register("price", {
             required: "Price is required",
@@ -110,7 +114,7 @@ function AddProduct() {
           fullWidth
           id="description"
           label="Description"
-          name="Description"
+          name="description"
           color="secondary"
           margin="normal"
           multiline
@@ -130,35 +134,29 @@ function AddProduct() {
           color="secondary"
           label="Category"
           fullWidth
-          margin='normal'
-          { ...register("category", {
-            required: "Please select category",
-          }) }
-          error={ errors.category ? true : false }
-          helperText={ errors.category ? errors.category.message : "" }
-
+          margin="normal"
+          {...register("category", {
+            required: "Please select a category",
+          })}
+          error={errors.category ? true : false}
+          helperText={errors.category ? errors.category.message : ""}
         >
-          { category.map((option) => (
-            <MenuItem key={ option.value } value={ option.value }>
-              { option.label }
+          {category.map((option) => (
+            <MenuItem key={option.id} value={option.value}>
+              {option.label}
             </MenuItem>
           )) }
         </TextField>
+
         <TextField
           fullWidth
           id="images"
-          name="image"
+          name="images"
           variant="outlined"
           margin="normal"
-          type='file'
-          { ...register("images", {
-            required: "image is required",
-          }) }
-          error={ errors.images ? true : false }
-          helperText={ errors.images ? errors.images.message : "" }
         />
-
-        <ARButton text="Add Product" onClick={ handleSubmit((data) => onSubmit(data)) } />
+        <div className="button-add">
+          <ARButton text="Add Product" onClick={handleSubmit((data) => onSubmit(data))} /></div>
       </form>
     </div>
   );
