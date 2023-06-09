@@ -15,6 +15,7 @@ import HomePage from './components/HomePage/HomePage';
 import AddProduct from './components/Product/AddProduct/AddProduct';
 import AddOffer from './components/AddOffer/AddOffer';
 import RateReview from './components/RateReview/RateReview';
+import ChangePassword from './components/changePassword/ChangePassword';
 import CategoryPage from './components/CategoryPage/CategoryPage';
 
 
@@ -39,7 +40,7 @@ function App() {
         { path: '/FrontEnd-Areeq/review/:productId', element: <RateReview/>},
         { path: '/FrontEnd-Areeq/category/:categoryName', element: <CategoryPage /> },
         { path: '/FrontEnd-Areeq/*', element: <PageNotFound /> },
-
+        { path: '/FrontEnd-Areeq/changePassword/:userId', element: <ChangePassword /> },
 
       ]
     }
