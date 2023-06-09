@@ -39,7 +39,7 @@ const ShopBySeller = () => {
     }
     return chunkedArray;
   };
-  if (sellers.length === 0) {
+  if (!sellers || sellers.length === 0) {
     return null; // Render null or a loading indicator while fetching sellers
   }
 
