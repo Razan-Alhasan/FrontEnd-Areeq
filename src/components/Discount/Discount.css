@@ -2,30 +2,32 @@
     background-color: yellow;
     background-color: #ffde00;
     padding: 3%;
-    margin: 0% 34%;
+    margin: 0% 32%;
     cursor: pointer;
 }
 
 .discount-seller-btn {
     position: absolute;
     top: 0px;
-    left: -85px;
+    left: -72px;
     width: 100%;
 }
 
 .discount-product {
     position: absolute;
-    top: 193px;
-    left: 361px;
+    top: 187px;
+    left: 329px;
     width: 17%;
     padding: 1%;
 }
-.close-icon{
+
+.close-icon {
     cursor: pointer;
     background-color: var(--main-color);
     padding: 2%;
     color: var(--background-color);
 }
+
 .discount-window {
     margin-left: 40%;
     margin-top: 2%;
@@ -49,4 +51,94 @@
 .p-code {
     font-size: 20px;
     cursor: auto;
+}
+
+@media (max-width: 1000px) {
+    .discount-btn {
+        margin: 0% 31%;
+    }
+
+    .discount-seller-btn {
+        left: -54px;
+    }
+
+    .discount-product {
+        top: 177px;
+        left: 253px;
+        width: 20%;
+    }
+}
+
+@media (max-width: 850px) {
+    .discount-btn {
+        margin: 0% 31%;
+    }
+
+    .discount-seller-btn {
+        left: -54px;
+    }
+
+    .discount-product {
+        top: 88px;
+        left: 198px;
+        width: 23%;
+    }
+
+    .description {
+        margin-top: 17%;
+    }
+
+    .edit-icon {
+        top: 8%;
+    }
+}
+
+@media (max-width: 761px) {
+    .discount-product {
+        top: 85px;
+        left: 181px;
+        width: 24%;
+    }
+
+    .description {
+        margin-top: 22%;
+    }
+}
+
+@media (max-width: 700px) {
+    .discount-product {
+        top: 83px;
+        left: 164px;
+        width: 33%;
+    }
+
+
+}
+
+@media (max-width: 510px) {
+    .discount-product {
+        top: 75px;
+        left: 104px;
+        width: 35%;
+    }
+}
+
+@media (max-width: 400px) {
+    .discount-btn {
+        margin: 0% 32%;
+    }
+
+    .discount-seller-btn {
+        left: -47px;
+    }
+
+    .edit-icon {
+        top: 3%;
+    }
+
+    .discount-product {
+        top: 52px;
+        left: -22px;
+        width: 49%;
+    }
 }

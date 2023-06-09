@@ -73,7 +73,7 @@ function AddProduct() {
   return (
     <div className='container-s'>
       <h1>Add Product</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={ handleSubmit(onSubmit) }>
         <TextField
           fullWidth
           id="name"
@@ -82,11 +82,11 @@ function AddProduct() {
           color="secondary"
           margin="normal"
 
-          {...register("name", {
+          { ...register("name", {
             required: "Name is required",
-          })}
-          error={errors.name ? true : false}
-          helperText={errors.name ? errors.name.message : ""}
+          }) }
+          error={ errors.name ? true : false }
+          helperText={ errors.name ? errors.name.message : "" }
         />
 
         <TextField
@@ -99,15 +99,15 @@ function AddProduct() {
           type="number"
           inputProps={{ min: "0" }}
 
-          {...register("price", {
+          { ...register("price", {
             required: "Price is required",
             min: {
               value: 0,
               message: "Price must be a positive number",
             },
-          })}
-          error={errors.price ? true : false}
-          helperText={errors.price ? errors.price.message : ""}
+          }) }
+          error={ errors.price ? true : false }
+          helperText={ errors.price ? errors.price.message : "" }
         />
 
         <TextField
@@ -118,13 +118,13 @@ function AddProduct() {
           color="secondary"
           margin="normal"
           multiline
-          rows={2}
+          rows={ 2 }
 
-          {...register("description", {
+          { ...register("description", {
             required: "description is required",
-          })}
-          error={errors.description ? true : false}
-          helperText={errors.description ? errors.description.message : ""}
+          }) }
+          error={ errors.description ? true : false }
+          helperText={ errors.description ? errors.description.message : "" }
         />
 
         <TextField
@@ -145,7 +145,7 @@ function AddProduct() {
             <MenuItem key={option.id} value={option.value}>
               {option.label}
             </MenuItem>
-          ))}
+          )) }
         </TextField>
 
         <TextField

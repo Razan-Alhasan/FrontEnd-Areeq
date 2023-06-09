@@ -65,12 +65,12 @@ img {
     cursor: pointer;
 }
 
-.description {
+.description-prod {
     color: var(--main-color);
     padding: 5% 1%;
     background-color: var(--background-color);
     text-align: center;
-    margin: 15% 15% 7%;
+    margin: 17% 15% 7%;
     border: 0.3px solid var(--main-color);
     box-shadow: 0px 0px 10px var(--main-color);
     font-size: 22px;
@@ -89,16 +89,10 @@ h2 {
     text-shadow: 0px 0px 20px var(--button-back-color);
 }
 
-.discount-product {
-    position: absolute;
-    top: 207px;
-    left: -31px;
-    width: 6%;
-    padding: 1%;
 
-}
+
 @media (max-width: 1244px) {
-    .description {
+    .description-prod {
         margin: 20%;
     }
 }
@@ -122,7 +116,71 @@ h2 {
         width: 40%;
     }
 
-    .description {
-        margin: 10%;
+    .description-prod {
+        margin: -5% 5% 5%;
     }
+}
+
+@media (max-width: 500px) {
+    .images {
+        flex-direction: column-reverse;
+    }
+
+    .vertical-image {
+        flex-direction: row;
+        width: 44%;
+        margin: 0% -4%;
+    }
+
+    .vert-imgs {
+        display: flex;
+    }
+
+    .vert-imgs img {
+        padding: 2%;
+    }
+
+    .wish {
+        position: absolute;
+        top: 3%;
+        margin: 0%;
+    }
+
+    .edit-icon {
+        top: 3%;
+    }
+
+    .discount-btn {
+        margin: 0% -8%;
+    }
+
+    .discount-product {
+        top: 73px;
+        left: 42px;
+    }
+
+    .base-image {
+        width: 111%;
+    }
+
+    .description-prod {
+        margin: 19% 5%;
+    }
+}
+
+@media (min-width: 400px) and (max-width:499px) {
+    .edit-icon {
+        top: 1% !important;
+    }
+
+    .vertical-image {
+        margin: 6% -4%;
+    }
+
+    .discount-product {
+        top: 60px !important;
+        left: -13px !important;
+        width: 42% !important;
+    }
+
 }

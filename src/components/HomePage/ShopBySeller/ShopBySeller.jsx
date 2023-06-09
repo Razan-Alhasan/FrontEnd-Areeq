@@ -14,6 +14,7 @@ const ShopBySeller = () => {
       try {
         const usersData = await getAllUsers();
         setSellers(usersData);
+        console.log(usersData)
       } catch (error) {
         console.error('Error fetching Sellers:', error);
       }
