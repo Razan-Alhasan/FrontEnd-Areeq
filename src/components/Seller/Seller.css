@@ -273,3 +273,14 @@ Link {
     }
 }
 
+@media (max-width: 440px) {
+    .buttons {
+        top: 14%;
+        right: 5%;
+    }
+
+    .edit-seller {
+        top: 10%;
+    }
+
+}

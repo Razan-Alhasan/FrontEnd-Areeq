@@ -6,7 +6,7 @@ import React from 'react';
 import Swal from "sweetalert2";
 import 'sweetalert2/dist/sweetalert2.min.css';
 import { useForm } from 'react-hook-form';
-import { createProduct } from './../../../api/productsApi'
+import { createProduct } from '../../../api/productsApi';
 
 
 function AddProduct() {
@@ -69,7 +69,7 @@ function AddProduct() {
   return (
     <div className='container-s'>
       <h1>Add Product</h1>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={ handleSubmit(onSubmit) }>
         <TextField
           fullWidth
           id="name"
@@ -78,11 +78,11 @@ function AddProduct() {
           color="secondary"
           margin="normal"
 
-          {...register("name", {
+          { ...register("name", {
             required: "Name is required",
-          })}
-          error={errors.name ? true : false}
-          helperText={errors.name ? errors.name.message : ""}
+          }) }
+          error={ errors.name ? true : false }
+          helperText={ errors.name ? errors.name.message : "" }
         />
 
         <TextField
@@ -92,18 +92,18 @@ function AddProduct() {
           name="Price"
           color="secondary"
           margin="normal"
-          type="number" 
-          inputProps={{ min: "0" }} 
+          type="number"
+          inputProps={ { min: "0" } }
 
-          {...register("price", {
+          { ...register("price", {
             required: "Price is required",
             min: {
               value: 0,
               message: "Price must be a positive number",
             },
-          })}
-          error={errors.price ? true : false}
-          helperText={errors.price ? errors.price.message : ""}
+          }) }
+          error={ errors.price ? true : false }
+          helperText={ errors.price ? errors.price.message : "" }
         />
 
         <TextField
@@ -114,13 +114,13 @@ function AddProduct() {
           color="secondary"
           margin="normal"
           multiline
-          rows={2}
+          rows={ 2 }
 
-          {...register("description", {
+          { ...register("description", {
             required: "description is required",
-          })}
-          error={errors.description ? true : false}
-          helperText={errors.description ? errors.description.message : ""}
+          }) }
+          error={ errors.description ? true : false }
+          helperText={ errors.description ? errors.description.message : "" }
         />
 
         <TextField
@@ -131,18 +131,18 @@ function AddProduct() {
           label="Category"
           fullWidth
           margin='normal'
-          {...register("category", {
+          { ...register("category", {
             required: "Please select category",
-          })}
-          error={errors.category ? true : false}
-          helperText={errors.category ? errors.category.message : ""}
+          }) }
+          error={ errors.category ? true : false }
+          helperText={ errors.category ? errors.category.message : "" }
 
         >
-          {category.map((option) => (
-            <MenuItem key={option.value} value={option.value}>
-              {option.label}
+          { category.map((option) => (
+            <MenuItem key={ option.value } value={ option.value }>
+              { option.label }
             </MenuItem>
-          ))}
+          )) }
         </TextField>
         <TextField
           fullWidth
@@ -151,14 +151,14 @@ function AddProduct() {
           variant="outlined"
           margin="normal"
           type='file'
-          {...register("images", {
+          { ...register("images", {
             required: "image is required",
-          })}
-          error={errors.images ? true : false}
-          helperText={errors.images ? errors.images.message : ""}
+          }) }
+          error={ errors.images ? true : false }
+          helperText={ errors.images ? errors.images.message : "" }
         />
 
-        <ARButton text="Add Product" onClick={handleSubmit((data) => onSubmit(data))} />
+        <ARButton text="Add Product" onClick={ handleSubmit((data) => onSubmit(data)) } />
       </form>
     </div>
   );

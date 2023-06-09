@@ -13,8 +13,10 @@ import ARButton from "../ARButton/ARButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import Swal from "sweetalert2";
 //  import uploadImage from '../../utils/cloudinaryUtils'
+import { useNavigate } from 'react-router-dom';
 
 function SellerSignUp() {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const {
@@ -40,6 +42,8 @@ function SellerSignUp() {
   };
   const onSubmit = async (data) => {
     try {
+      localStorage.removeItem('token');
+      localStorage.removeItem('userId');
       data.photo = "photo";
       data.isAdmin = false;
       data.isSeller = true;
@@ -53,6 +57,7 @@ function SellerSignUp() {
         showConfirmButton: false,
         timer: 1500,
       });
+      navigate(`/FrontEnd-Areeq/signin`);
     } catch (error) {
       console.log("Failed to creat user:", error);
     }

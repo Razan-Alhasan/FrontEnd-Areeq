@@ -1,5 +1,12 @@
-.header-img{
-    height:70vh !important;
+.header-img {
+    height: 70vh !important;
     margin-top: 4%;
     padding: 2%;
+}
+
+@media (max-width: 600px) {
+    .header-img {
+        padding: 0%;
+        width: 182%;
+    }
 }
