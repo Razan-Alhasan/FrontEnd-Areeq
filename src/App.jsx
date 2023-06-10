@@ -1,7 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { createBrowserRouter } from 'react-router-dom';
-import GeneralSignUp from './components/signUp/GeneralSignUp';
+import GeneralSignUp from './components/SignUp/GeneralSignUp';
 import { RouterProvider } from 'react-router';
 import ProductPage from './components/ProductPage/ProductPage';
 import SignIn from './components/SignIn/SignIn';
@@ -17,9 +17,8 @@ import AddProduct from './components/Product/AddProduct/AddProduct';
 import AddOffer from './components/AddOffer/AddOffer';
 import RateReview from './components/RateReview/RateReview';
 
-
 function App() {
-  
+
   const routers = createBrowserRouter([
     {
       path: 'FrontEnd-Areeq/',
@@ -29,17 +28,17 @@ function App() {
         { path: '/FrontEnd-Areeq/home', element: <HomePage /> },
         { path: '/FrontEnd-Areeq/signin', element: <SignIn /> },
         { path: '/FrontEnd-Areeq/signup', element: <GeneralSignUp /> },
-        { path: '/FrontEnd-Areeq/signupseller', element: <SellerSignUp/> },
+        { path: '/FrontEnd-Areeq/signupseller', element: <SellerSignUp /> },
         { path: '/FrontEnd-Areeq/wishlist', element: <WishList /> },
         { path: '/FrontEnd-Areeq/archive', element: <ArchivePage /> },
         { path: '/FrontEnd-Areeq/product/:productId', element: <ProductPage /> },
         { path: '/FrontEnd-Areeq/seller/:userId', element: <Seller /> },
-        { path: '/FrontEnd-Areeq/addProduct', element: <AddProduct/> },
-        { path: '/FrontEnd-Areeq/addOffer', element: <AddOffer/> },
-        { path: '/FrontEnd-Areeq/review/:productId', element: <RateReview/>},
-        { path: '/FrontEnd-Areeq/*', element: <PageNotFound /> },
+        { path: '/FrontEnd-Areeq/addProduct', element: <AddProduct /> },
+        { path: '/FrontEnd-Areeq/addOffer', element: <AddOffer /> },
+        { path: '/FrontEnd-Areeq/review/:productId', element: <RateReview /> },
         { path: '/FrontEnd-Areeq/editprofile/:userId', element: <EditProfile /> },
-
+        { path: '/FrontEnd-Areeq/*', element: <PageNotFound /> },
+        { path: '/FrontEnd-Areeq/editprofile/EditProfile/:userId', element: <EditProfile /> },
 
 
       ]
@@ -47,6 +46,7 @@ function App() {
   ]);
   return (
     <RouterProvider router={ routers}/>
+    
   )
   
 }

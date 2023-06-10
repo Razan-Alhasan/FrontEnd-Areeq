@@ -172,7 +172,6 @@ function EditProfile() {
             )}
           </div>
         </div>
-
         <br></br>
         <div className="button">
           <ARButton text={"Save"} onClick={handleSubmit(handleFormSubmit)} />
