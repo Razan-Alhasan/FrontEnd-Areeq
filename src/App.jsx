@@ -12,7 +12,7 @@ import DefaultLayout from './components/DefaultLayout/DefaultLayout';
 import Seller from './components/Seller/Seller';
 import SellerSignUp from './components/SellerSignUp/SellerSignUp';
 import HomePage from './components/HomePage/HomePage';
-import EditProfile from './components/editprofile/EditProfile';
+import EditProfile from './components/EditProfile/EditProfile';
 import AddProduct from './components/Product/AddProduct/AddProduct';
 import AddOffer from './components/AddOffer/AddOffer';
 import RateReview from './components/RateReview/RateReview';
@@ -38,7 +38,7 @@ function App() {
         { path: '/FrontEnd-Areeq/addOffer', element: <AddOffer/> },
         { path: '/FrontEnd-Areeq/review/:productId', element: <RateReview/>},
         { path: '/FrontEnd-Areeq/*', element: <PageNotFound /> },
-        { path: '/FrontEnd-Areeq/editprofile/EditProfile/:userId', element: <EditProfile /> },
+        { path: '/FrontEnd-Areeq/editprofile/:userId', element: <EditProfile /> },
 
 
 
