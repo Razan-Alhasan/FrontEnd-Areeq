@@ -53,9 +53,11 @@ const ProductPage = () => {
             {/* </Link> */ }
             <div className='images'>
                 <div className='vertical-image '>
+                    <div className='vert-imgs'>
                     <img src={ product.images[1] } />
                     <img src={ product.images[2] } />
                     <img src={ product.images[3] } />
+                    </div>
                     <div className="wish" onClick={ handleFavoriteClick }>
                         <FontAwesomeIcon icon={ faHeart } className='wishlist' />
                         <span className='wishlist-text'> Add to wishlist</span>
@@ -75,7 +77,7 @@ const ProductPage = () => {
                 </div>
             ) }
 
-            <div className="description">
+            <div className="description-prod">
                 <p>{ product.description } </p>
             </div>
             <div className="related-item">

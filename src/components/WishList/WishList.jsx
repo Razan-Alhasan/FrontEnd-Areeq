@@ -5,6 +5,7 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import { Link } from 'react-router-dom';
 import Loading from '../Loading/Loading';
+import Discount from '../Discount/Discount';
 const WishList = () => {
     const [cookies] = useCookies(['favorites']);
     console.log('cookies.favorites:', cookies.favorites); // Check the value of cookies.favorites
@@ -30,19 +31,25 @@ const WishList = () => {
             <ImageList sx={ { width: '90%', height: '100%' } } cols={ 5 } className='image-list'>
                 { favoriteProducts ? (
                     favoriteProducts.map((product) => (
-                        <Link to={ `/FrontEnd-Areeq/product/${product._id}` } key={ product.id }>
-                            <ImageListItem key={ product.id } className='image-item'>
+                        <ImageListItem key={ product._id } className='image-item'>
+                            <Link to={ `/FrontEnd-Areeq/product/${product._id}` } key={ product._id }>
                                 <img
                                     src={ `${product.images[0]}?w=164&h=164&fit=crop&auto=format` }
                                     srcSet={ `${product.images[0]}?w=164&h=164&fit=crop&auto=format&dpr=2 2x` }
                                     alt={ product.name }
                                 />
+                            </Link>
                                 <div className="info-img">
                                     <h3 className='title'>{ product.name }</h3>
                                     <p className='price'>{ product.price } nis</p>
                                 </div>
-                            </ImageListItem>
-                        </Link>
+                            { product && product.offer && (
+                                <div className="discount-seller-btn">
+                                    <Discount product={ product } />
+                                </div>
+                            ) }
+                        </ImageListItem>
+
                     ))
                 ) : (
                     <Loading />

@@ -1,11 +1,15 @@
 
 .container-s{
-    width: 70%;
-    margin: auto;
+    width: 60%;
+    margin: 4% auto;
     background-color: transparent;
-    padding: 10px 16% 9%;
+    padding: 10px 12% 2%;
     box-shadow: 0px 0px 10px var(--main-color);
     
+}
+.button-add{
+    text-align: center;
+    margin: 9% 0 ;
 }
 h1{
     margin-bottom: 10%;
@@ -15,6 +19,9 @@ h1{
 @media screen and (min-width:300px) and (max-width:930px){
     .container {
         width: 90%;
+    }
+    .button-add{
+        margin: auto;
     }
     
         h1{
@@ -27,6 +34,9 @@ h1{
    .container {
     width: 90%;
    }
+   .button-add{
+    margin: auto ;
+}
    h1{
     font-size: 20px !important;
    }

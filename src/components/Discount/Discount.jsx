@@ -41,7 +41,7 @@ const Discount = ({ product }) => {
                             onClick={ handleDiscountClick }
                         />
                         <p className='p-code'>Save the code now!<br></br>to win the discount!</p>
-                        <span className='code'>Code:{discount[0].code }</span>
+                        <span className='code'>Code:{discount[0]?.code }</span>
                     </>
                 </div>
             ) }

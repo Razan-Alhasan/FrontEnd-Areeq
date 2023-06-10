@@ -95,8 +95,8 @@ function AddOffer() {
 
         
         
-
-        <ARButton text="Add Offer" onClick={handleSubmit((data) => onSubmit(data))} />
+<div className="button-offer">
+        <ARButton text="Add Offer" onClick={handleSubmit((data) => onSubmit(data))} /></div>
       </form>
     </div>
   );

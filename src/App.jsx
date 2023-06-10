@@ -12,10 +12,14 @@ import DefaultLayout from './components/DefaultLayout/DefaultLayout';
 import Seller from './components/Seller/Seller';
 import SellerSignUp from './components/SellerSignUp/SellerSignUp';
 import HomePage from './components/HomePage/HomePage';
-import EditProfile from './components/EditProfile/EditProfile';
+import EditProfile from './components/editprofile/EditProfile';
 import AddProduct from './components/Product/AddProduct/AddProduct';
+import AddProduct from './components/ProductPage/AddProduct/AddProduct';
 import AddOffer from './components/AddOffer/AddOffer';
 import RateReview from './components/RateReview/RateReview';
+import ChangePassword from './components/changePassword/ChangePassword';
+import CategoryPage from './components/CategoryPage/CategoryPage';
+
 
 function App() {
 
@@ -37,17 +41,14 @@ function App() {
         { path: '/FrontEnd-Areeq/addOffer', element: <AddOffer /> },
         { path: '/FrontEnd-Areeq/review/:productId', element: <RateReview /> },
         { path: '/FrontEnd-Areeq/editprofile/:userId', element: <EditProfile /> },
+        { path: '/FrontEnd-Areeq/category/:categoryName', element: <CategoryPage /> },
+        { path: '/FrontEnd-Areeq/changePassword/:userId', element: <ChangePassword /> },
         { path: '/FrontEnd-Areeq/*', element: <PageNotFound /> },
-        { path: '/FrontEnd-Areeq/editprofile/EditProfile/:userId', element: <EditProfile /> },
-
-
       ]
     }
   ]);
   return (
-    <RouterProvider router={ routers}/>
-    
-  )
-  
+    <RouterProvider router={ routers } />
+  );
 }
 export default App;
