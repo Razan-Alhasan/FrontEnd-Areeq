@@ -1,5 +1,4 @@
 .container-up{
-    background-image: url(../../../img/vv.webp);
     width: 700px;
     margin: auto !important;
     background-color: transparent;
@@ -20,7 +19,8 @@ a:-webkit-any-link {
     color: var(--main-color) ;
     text-decoration: none;
 }
-body{
+.body-signup{
+    background-image: url(../../../img/vv.webp);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }

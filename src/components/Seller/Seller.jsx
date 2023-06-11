@@ -103,26 +103,16 @@ const Seller = () => {
                     </div>
                 </div>
                 { user.isSeller && <div className="btn-if-seller">
-<<<<<<< HEAD
-                    <Link to={ `/FrontEnd-Areeq/editprofile/${userId}` }>
-                        <div className="edit-seller">
-                            <FontAwesomeIcon icon={ faGear } /><span className='edit-name'> Edit profile</span>
-                        </div>
-                    </Link>
-=======
                     <div className="edit-seller">
+                        <Link to={`/FrontEnd-Areeq/EditProfile/${user.id}`}>
                         <FontAwesomeIcon icon={ faGear } /><span className='edit-name'> Edit profile</span>
+                        </Link>
                     </div>
->>>>>>> 0fabcea3b3ad6e177ed1c48885cf7325f88ed02e
                     <div className="buttons">
                         <Link to='/FrontEnd-Areeq/addOffer'>
                             <FontAwesomeIcon icon={ faPercent } className='icon-btn' />
                         </Link>
-<<<<<<< HEAD
-                        <Link to='/FrontEnd-Areeq/add'>
-=======
                         <Link to='/FrontEnd-Areeq/addProduct'>
->>>>>>> 0fabcea3b3ad6e177ed1c48885cf7325f88ed02e
                             <FontAwesomeIcon icon={ faCirclePlus } className='icon-btn' />
                         </Link>
                         <Link to='/FrontEnd-Areeq/archive'>

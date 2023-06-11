@@ -13,7 +13,6 @@ import Seller from './components/Seller/Seller';
 import SellerSignUp from './components/SellerSignUp/SellerSignUp';
 import HomePage from './components/HomePage/HomePage';
 import EditProfile from './components/editprofile/EditProfile';
-import AddProduct from './components/Product/AddProduct/AddProduct';
 import AddProduct from './components/ProductPage/AddProduct/AddProduct';
 import AddOffer from './components/AddOffer/AddOffer';
 import RateReview from './components/RateReview/RateReview';
