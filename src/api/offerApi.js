@@ -14,7 +14,9 @@ export const createOffer = async (offerData) => {
     try {
         const response = await axiosInstance.post('/offer', offerData);
         if (response.status === 201) {
-            return response.data;
+           console.log(response.data); 
+           return response.data;
+            
         }
     } catch (error) {
         console.error('Error creating offer:', error);
