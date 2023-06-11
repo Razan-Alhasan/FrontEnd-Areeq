@@ -176,7 +176,7 @@ function EditProfile() {
           <br></br>
           <br></br>
           <Link to={`/FrontEnd-Areeq/ChangePassword/${userId}`}>
-            <ARButton text={"Change Your Password"} />{" "}
+            <ARButton text={"Change Your Password"} />
           </Link>
         </div>
       </form>
