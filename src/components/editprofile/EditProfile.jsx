@@ -1,4 +1,5 @@
 import { useForm } from "react-hook-form";
+import React, { useRef, useState, useEffect } from 'react';
 import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import "./EditProfile.css";
@@ -53,26 +54,24 @@ function EditProfile() {
       console.log("Error updating user:", error);
     }
   };
-
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
   const handleUploadClick = () => {
     fileInputRef.current.click();
   };
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-    console.log("Uploaded file:", file);
-  };
-
+ 
   return (
     <div className=" container-edit m-auto my-4 myborder p-5 rounded">
       <h1>Edit Your Profile</h1>
       <form onSubmit={handleFormSubmit}>
         <div className="Avatar">
-          <Avatar
-            size={150}
-            round="true"
-            src="https://thumbs.dreamstime.com/b/add-user-icon-vector-people-new-profile-person-illustration-business-group-symbol-male-195158118.jpg"
-            alt="User Avatar"
-          />
+        <Avatar src="/broken-image.jpg" 
+        />
         </div>
         <a className="A" href="#" onClick={handleUploadClick}>
           Change Your Picture
@@ -81,7 +80,6 @@ function EditProfile() {
           ref={fileInputRef}
           type="file"
           accept="image/*"
-          onChange={handleFileChange}
           style={{ display: "none" }}
         />
         <div className="form-fields">
@@ -177,7 +175,7 @@ function EditProfile() {
           <ARButton text={"Save"} onClick={handleSubmit(handleFormSubmit)} />
           <br></br>
           <br></br>
-          <Link to={`/FrontEnd-Areeq/editpass`}>
+          <Link to={`/FrontEnd-Areeq/ChangePassword/${userId}`}>
             <ARButton text={"Change Your Password"} />{" "}
           </Link>
         </div>
