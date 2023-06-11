@@ -6,6 +6,8 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 import { useForm } from 'react-hook-form';
 import { createOffer } from '../../api/offerApi';
 import './AddOffer.css';
+import { Link } from 'react-router-dom';
+
 
 function AddOffer() {
   const {
@@ -17,9 +19,8 @@ function AddOffer() {
   const onSubmit = async (data) => {
     try {
       
-      const token = await createOffer(data);
-      localStorage.setItem("token", JSON.stringify(token));
-      console.log("Successfully created offer!");
+      const offer = await createOffer(data);
+      console.log("Successfully created offer!",offer);
       Swal.fire({
         position: "center",
         icon: "success",
@@ -27,6 +28,7 @@ function AddOffer() {
         showConfirmButton: false,
         timer: 20000,
       });
+
     } catch (error) {
       console.log("Failed to created offer:", error);
       Swal.fire({
@@ -97,6 +99,11 @@ function AddOffer() {
         
 <div className="button-offer">
         <ARButton text="Add Offer" onClick={handleSubmit((data) => onSubmit(data))} /></div>
+        
+         <div className="discount">
+        <Link to="/FrontEnd-Areeq/addDiscount">
+            <ARButton text={ "Add discount code" }  />
+      </Link></div> 
       </form>
     </div>
   );

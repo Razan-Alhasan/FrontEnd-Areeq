@@ -7,7 +7,7 @@
     box-shadow: 0px 0px 10px var(--main-color);
     
 }
-.button-offer{
+.button-discount{
    text-align: center;
    margin: 7% 0;
 }
@@ -16,9 +16,7 @@ h1{
     margin-bottom: 10%;
     color: var(--main-color);
 }
-.discount{
-text-align: center;
-}
+
 
 
 @media screen and (min-width:300px) and (max-width:930px){
