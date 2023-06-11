@@ -13,6 +13,8 @@ import { Link } from 'react-router-dom';
 import { useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
 import ARButton from '../ARButton/ARButton';
+import OptionsDropdown from './ThreePoint//ThreePoint'
+
 // import { getImage } from '../utils/cloundinaryUtils';
 import './Seller.css';
 import Discount from '../Discount/Discount';
@@ -123,9 +125,10 @@ const Seller = () => {
                 </div> }
                 <div>
                     <ImageList sx={ { width: '90%', height: '100%' } } cols={ 5 } className='image-list'>
-                        { products.map((product) => (
-                            <Link to={ `/FrontEnd-Areeq/product/${product._id}` } key={ product.id }>
-                                <ImageListItem key={ product.id } className='image-item' >
+                    {products.map((product) => (
+            <ImageListItem key={product._id} className='image-item'>
+                                <OptionsDropdown product={product}/>
+
                                     <img
                                         src={ `${product.images[0]}?w=164&h=164&fit=crop&auto=format` }
                                         srcSet={ `${product.images[0]}?w=164&h=164&fit=crop&auto=format&dpr=2 2x` }
@@ -142,7 +145,6 @@ const Seller = () => {
                                         </div>
                                     ) }
                                 </ImageListItem>
-                            </Link>
                         )) }
                     </ImageList>
                 </div>
