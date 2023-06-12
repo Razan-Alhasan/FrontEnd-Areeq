@@ -1,5 +1,5 @@
 .container-s {
-  width: 700px;
+  width: 600px;
   margin: auto;
   background-color: transparent;
   padding: 1% 10% 5%;
@@ -19,7 +19,7 @@ a:-webkit-any-link {
   text-decoration: none;
 }
 .body-sellersign {
-  background-image: url(../../../img/1600w-2dPvR43qY2A.webp);
+  background-image: url(../../../public/img/1600w-2dPvR43qY2A.webp);
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }

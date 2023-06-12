@@ -54,13 +54,7 @@ function EditProfile() {
       console.log("Error updating user:", error);
     }
   };
-  const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setState((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+
   const handleUploadClick = () => {
     fileInputRef.current.click();
   };

@@ -70,6 +70,14 @@ function ChangePassword() {
       newPassword: '',
       confirmPassword: '',
     });
+    const handleInputChange = (event) => {
+      const { name, value } = event.target;
+      setPasswordData((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+    };
+    
     const handleFormSubmit = async (data) => {
       try {
         const updatedUser = {
@@ -78,7 +86,7 @@ function ChangePassword() {
         };
         const response = await updateUser(userId, updatedUser);
         console.log("User updated successfully:", response);
-        navigate(`/FrontEnd-Areeq/seller/${userId}`)
+        navigate(`/FrontEnd-Areeq/seller/${id}`)
       } catch (error) {
         console.log("Error updating user:", error);
       }
