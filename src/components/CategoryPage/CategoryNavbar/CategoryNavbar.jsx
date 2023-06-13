@@ -11,11 +11,6 @@ const Navbar = ({ handleFilterByRate, handleFilterByType, handleSortByPrice }) =
     setSelectedRate(rate);
     handleFilterByRate(rate);
   };
-  const handleTypeChange = (e) => {
-    const type = e.target.value;
-    setSelectedType(type);
-    handleFilterByType(type);
-  };
   const handleSortChange = (e) => {
     const sortOption = e.target.value;
     setSelectedSort(sortOption);
@@ -34,13 +29,12 @@ const Navbar = ({ handleFilterByRate, handleFilterByType, handleSortByPrice }) =
         <option value="5">5 stars</option>
       </select>
 
-      <label className='type-n' htmlFor="type-filter">Filter by Type:</label>
-      <select id="type-filter" value={selectedType} onChange={handleTypeChange}>
-        <option value="all">All</option>
-        <option value="type1">dress</option>
-        <option value="type2">blouse</option>
-        <option value="type3">hijab</option>
-      </select>
+      <label className="sortA-n" htmlFor="sort-alphabet">Sort by Alphabet:</label>
+      <select id="sort-alphabet" value={selectedSort} onChange={handleSortChange}>
+         <option value="a-to-z">A to Z</option>
+         <option value="z-to-a">Z to A</option>
+     </select>
+
 
       <label className='sort-n' htmlFor="sort-by">Sort by Price:</label>
       <select   id="sort-by" value={selectedSort} onChange={handleSortChange}>
