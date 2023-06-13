@@ -15,9 +15,10 @@ import { useParams, useNavigate } from "react-router";
 
 function ChangePassword() {
   const navigate = useNavigate();
-  const [showCurrentPassword, setShowCurrentPassword] = useState(false);
+  const [showpassword, setShowpassword] = useState(false);
   const [showNewPassword, setShowNewPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [state, setState] = useState({});
   const {
     register,
     watch,
@@ -30,6 +31,7 @@ function ChangePassword() {
   password.current = watch("password", "");
 
   useEffect(() => {
+    console.log("userId:", userId);
     const fetchUser = async () => {
       try {
         const user = await getUserById(userId);
@@ -42,10 +44,10 @@ function ChangePassword() {
     fetchUser();
   }, [userId, setValue]);
 
-  const handleClickshowCurrentPassword = () => {
-    setShowCurrentPassword(!showCurrentPassword);
+  const handleClickshowpassword = () => {
+    setShowpassword(!showpassword);
   };
-  const handleMouseDownshowCurrentPassword = (event) => {
+  const handleMouseDownshowpassword = (event) => {
     event.preventDefault();
   };
   const handleClickshowNewPassword = () => {
@@ -61,158 +63,151 @@ function ChangePassword() {
     event.preventDefault();
   };
   const validateConfirmPassword = (value) => {
-    const newPassword = getValues("newPassword");
+    const newPassword = watch("newPassword");
     return value === newPassword || "Passwords do not match";
   };
-    const [user, setUser] = useState(null);
-    const [passwordData, setPasswordData] = useState({
-      currentPassword: '',
-      newPassword: '',
-      confirmPassword: '',
-    });
-    const handleInputChange = (event) => {
-      const { name, value } = event.target;
-      setPasswordData((prevState) => ({
-        ...prevState,
-        [name]: value,
-      }));
-    };
-    
-    const handleFormSubmit = async (data) => {
-      try {
-        const updatedUser = {
-          ...state,
-          password: data.password,
-        };
-        const response = await updateUser(userId, updatedUser);
-        console.log("User updated successfully:", response);
-        navigate(`/FrontEnd-Areeq/seller/${id}`)
-      } catch (error) {
-        console.log("Error updating user:", error);
+
+  const handleFormSubmit = async (data) => {
+    try {
+      const storedPassword = localStorage.getItem("password"); 
+      if (storedPassword !== data.password) {
+        console.log("Incorrect password");
+        return;
       }
-    };
+
+      const updatedUser = {
+        ...state,
+        password: data.newPassword,
+      };
+      const response = await updateUser(userId, updatedUser); 
+      console.log("Password changed successfully:", response);
+      navigate(`/FrontEnd-Areeq/seller/${userId}`);
+    } catch (error) {
+      console.log("Error changing password:", error);
+    }
+  };
 
   return (
-    <div className=" container-change m-5 myborder p-5 rounded">
-      <h1>Change your password</h1>
-      <form onSubmit={handleFormSubmit}>
-        <FormControl  variant="outlined" fullWidth>
-          <TextField
-            id="outlined-adornment-password"
-            label="Current Password"
-            name="Current Password"
-            variant="outlined"
-            margin="normal"
-            type={showCurrentPassword ? "text" : "Current Password"}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle Current Password visibility"
-                    onClick={handleClickshowCurrentPassword}
-                    onMouseDown={handleMouseDownshowCurrentPassword}
-                    edge="end"
-                  >
-                    {showCurrentPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-            {...register("Current Password", {
-              required: "Password is required",
-              minLength: {
-                value: 6,
-                message: "Password must be at least 6 characters",
-              },
-            })}
-            error={errors.CurrentPassword ? true : false}
-            helperText={
-              errors.CurrentPassword ? errors.CurrentPassword.message : ""
-            }
-            onChange={handleInputChange}
-          />
-        </FormControl>
+    <div className="chpass">
+      <div className=" container-change m-5 myborder p-5 rounded">
+        <h1>Change your password</h1>
+        <form onSubmit={handleSubmit(handleFormSubmit)}>
+          <FormControl variant="outlined" fullWidth>
+            <TextField
+              id="outlined-adornment-password"
+              label="password"
+              name="password"
+              variant="outlined"
+              margin="normal"
+              type={showpassword ? "text" : "password"}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle password visibility"
+                      onClick={handleClickshowpassword}
+                      onMouseDown={handleMouseDownshowpassword}
+                      edge="end"
+                    >
+                      {showpassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              {...register("password", {
+                required: "Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Password must be at least 6 characters",
+                },
+              })}
+              error={errors.password ? true : false}
+              helperText={errors.password ? errors.password.message : ""}
+            />
+          </FormControl>
 
-        <FormControl  variant="outlined" fullWidth>
-          <TextField
-            id="outlined-adornment-confirm-password"
-            label="New Password"
-            name="New Password"
-            variant="outlined"
-            margin="normal"
-            type={showNewPassword ? "text" : "password"}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle New Password visibility"
-                    onClick={handleClickshowNewPassword}
-                    onMouseDown={handleMouseDownshowNewPassword}
-                    edge="end"
-                  >
-                    {showNewPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-            {...register("NewPassword", {
-              required: "New Password is required",
-              minLength: {
-                value: 6,
-                message: "New Password must be at least 6 characters",
-              },
-            })}
-            error={errors.NewPassword ? true : false}
-            helperText={errors.NewPassword ? errors.NewPassword.message : ""}
-            onChange={handleInputChange}
-          />
-        </FormControl>
+          <FormControl variant="outlined" fullWidth>
+            <TextField
+              id="outlined-adornment-new-password"
+              label="New Password"
+              name="newPassword"
+              variant="outlined"
+              margin="normal"
+              type={showNewPassword ? "text" : "password"}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle New Password visibility"
+                      onClick={handleClickshowNewPassword}
+                      onMouseDown={handleMouseDownshowNewPassword}
+                      edge="end"
+                    >
+                      {showNewPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              {...register("newPassword", {
+                required: "New Password is required",
+                minLength: {
+                  value: 6,
+                  message: "New Password must be at least 6 characters",
+                },
+              })}
+              error={errors.newPassword ? true : false}
+              helperText={
+                errors.newPassword ? errors.newPassword.message : ""
+              }
+            />
+          </FormControl>
 
-        <FormControl  variant="outlined" fullWidth>
-          <TextField
-            id="ConfirnNewPassword"
-            label="Confirn New Password"
-            name="Confirn New Password"
-            variant="outlined"
-            margin="normal"
-            type={showConfirmPassword ? "text" : "password"}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <IconButton
-                    aria-label="toggle Confirn Password visibility"
-                    onClick={handleClickShowConfirmPassword}
-                    onMouseDown={handleMouseDownConfirmPassword}
-                    edge="end"
-                  >
-                    {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
-                  </IconButton>
-                </InputAdornment>
-              ),
-            }}
-            {...register("ConfirmPassword", {
-              required: " Confirm  Password is required",
-              minLength: {
-                value: 6,
-                message: " Confirm New Password must be at least 6 characters",
-              },
-              validate: validateConfirmPassword,
-            })}
-            error={errors.ConfirnNewPassword ? true : false}
-            helperText={
-              errors.ConfirnNewPassword ? errors.ConfirnNewPassword.message : ""
-            }
-            onChange={handleInputChange}
+          <FormControl variant="outlined" fullWidth>
+            <TextField
+              id="outlined-adornment-confirm-password"
+              label="Confirm New Password"
+              name="confirmPassword"
+              variant="outlined"
+              margin="normal"
+              type={showConfirmPassword ? "text" : "password"}
+              InputProps={{
+                endAdornment: (
+                  <InputAdornment position="end">
+                    <IconButton
+                      aria-label="toggle Confirm Password visibility"
+                      onClick={handleClickShowConfirmPassword}
+                      onMouseDown={handleMouseDownConfirmPassword}
+                      edge="end"
+                    >
+                      {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                    </IconButton>
+                  </InputAdornment>
+                ),
+              }}
+              {...register("confirmPassword", {
+                required: "Confirm Password is required",
+                minLength: {
+                  value: 6,
+                  message: "Confirm Password must be at least 6 characters",
+                },
+                validate: validateConfirmPassword,
+              })}
+              error={errors.confirmPassword ? true : false}
+              helperText={
+                errors.confirmPassword ? errors.confirmPassword.message : ""
+              }
+            />
+          </FormControl>
+          <br></br>
+          <br></br>
+          <ARButton
+            text={"Save"}
+            onClick={handleSubmit(handleFormSubmit)}
           />
-        </FormControl>
-        <br></br>
-        <br></br>
-        <ARButton
-          text={"Save"}
-          onClick={ handleSubmit(handleFormSubmit) }
-        />
-      </form>
+        </form>
+      </div>
     </div>
   );
 }
+
 export default ChangePassword;
