@@ -3,7 +3,7 @@ import axiosInstance from '../../utils/axiosUtils'
 import { useParams, Link } from 'react-router-dom';
 import { getProducts } from '../../api/productsApi';
 import Card from 'react-bootstrap/Card';
-
+import CategoryNavbar from './CategoryNavbar/CategoryNavbar'
 
 const CategoryPage = () => {
     const [products, setProducts] = useState([]);
@@ -42,6 +42,7 @@ const CategoryPage = () => {
 
     return (
         <div>
+            <CategoryNavbar />
             <h1>Products for {categoryName}</h1>
             <div className='card-flex row'>
                 {products.map((product) => (
