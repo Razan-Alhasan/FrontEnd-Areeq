@@ -19,7 +19,6 @@ import RateReview from './components/RateReview/RateReview';
 import ChangePassword from './components/changePassword/ChangePassword';
 import CategoryPage from './components/CategoryPage/CategoryPage';
 
-
 function App() {
 
   const routers = createBrowserRouter([
