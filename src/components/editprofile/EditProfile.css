@@ -1,20 +1,16 @@
-.container-up{
-    background-image: url(../../../img/1600w-2dPvR43qY2A.webp);
-    width: 50%;
-    margin: 4% auto ;
+.container-edit{
+    width: 700px;
     background-color: transparent;
     padding: 1% 10% 5%;
     box-shadow: 0px 0px 10px var(--main-color);
-    text-align: center ;
-
 }
 
-.container-up h1{
+.container-edit h1{
     margin-bottom: 10%;
     color: var(--main-color);
-    margin-left: 0px !important;
+    margin: auto;
 }
-.control{
+.container-edit .control{
     margin-top: 10%;
     display: inline-block;
 }
@@ -22,13 +18,21 @@ a:-webkit-any-link {
     color: var(--main-color) ;
     text-decoration: none;
 }
-.body-signup{
+.container-edit body{
+    background-color: rgba(111, 71, 97, 0.311);
     background-size: 100% 100%;
     background-repeat: no-repeat;
 }
 .css-i4bv87-MuiSvgIcon-root{
     color: var(--main-color);
 }
-.button{
+.container-edit .button{
     text-align: center;
-    }
+}
+.container-edit .Avatar{
+    text-align: center;
+    margin-left: 290px;
+}
+.container-edit .A{
+    margin-left: 40%;
+}
