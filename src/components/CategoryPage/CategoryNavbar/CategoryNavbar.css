@@ -1,0 +1,31 @@
+.Navbar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: var(--background-color);
+    border: 3px solid #ccc;
+    border-radius:20px;
+  }
+  label {
+    margin-right: 10px;
+  }
+.sortA-n{
+    margin-left: 100px;
+}
+.sort-n{
+    margin-left: 700px;
+}
+  nav {
+    border-bottom: 1px solid #ccc;
+  }
+  label {
+    font-weight: bold;
+  }
+  select {
+    padding: 5px;
+    border-radius: 4px;
+    background-color: white;
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  

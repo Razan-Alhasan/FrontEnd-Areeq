@@ -1,3 +1,71 @@
-body{
+body {
     background-color: white !important;
+}
+
+.rcw-conversation-container .rcw-header {
+    background-color: var(--background-color) !important;
+}
+
+/* .chat-button-hidden {
+    display: none;
+} */
+
+/* button.rcw-launcher {
+    display: none !important;
+} */
+
+.chat-button {
+    position: absolute;
+    background-color: transparent;
+    bottom: -4%;
+    right: 3% !important;
+    border: 0;
+
+}
+
+.rcw-close-launcher {
+    margin: -157% 0%;
+    display: inline-block;
+}
+
+.rcw-send-icon {
+    height: 25px !important;
+    margin: 24%;
+}
+
+.rcw-conversation-container .rcw-title {
+    font-size: 29px;
+    color: var(--main-color);
+}
+
+.rcw-client .rcw-message-text {
+    background-color: var(--background-color) !important;
+}
+
+.rcw-picker-btn {
+    display: none !important;
+}
+
+.rcw-widget-container {
+    margin-top: 6%;
+}
+
+.rcw-launcher {
+    background-color: var(--background-color) !important;
+
+}
+
+widget {
+    position: fixed;
+    bottom: 6%;
+    right: 3%;
+    z-index: 9999;
+}
+
+.rcw-widget-container {
+    bottom: 49px !important;
+}
+
+.rcw-open-launcher {
+    margin-top: -68px;
 }

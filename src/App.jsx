@@ -19,7 +19,6 @@ import RateReview from './components/RateReview/RateReview';
 import ChangePassword from './components/changePassword/ChangePassword';
 import CategoryPage from './components/CategoryPage/CategoryPage';
 
-
 function App() {
 
   const routers = createBrowserRouter([
@@ -43,6 +42,7 @@ function App() {
         { path: '/FrontEnd-Areeq/category/:categoryName', element: <CategoryPage /> },
         { path: '/FrontEnd-Areeq/changePassword/:userId', element: <ChangePassword /> },
         { path: '/FrontEnd-Areeq/*', element: <PageNotFound /> },
+
       ]
     }
   ]);
