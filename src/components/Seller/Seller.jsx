@@ -106,7 +106,13 @@ const Seller = () => {
                 </div>
                 { user.isSeller && <div className="btn-if-seller">
                     <div className="edit-seller">
+<<<<<<< HEAD
                         <Link to={`/FrontEnd-Areeq/EditProfile/${user.id}`}>
+=======
+
+                        <Link to={`/FrontEnd-Areeq/EditProfile/${user.id}`}>
+
+>>>>>>> 9e380707e4211deb9f1aa3690df37e52935bed66
                         <FontAwesomeIcon icon={ faGear } /><span className='edit-name'> Edit profile</span>
                         </Link>
                     </div>
