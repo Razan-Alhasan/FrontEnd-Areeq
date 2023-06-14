@@ -74,9 +74,9 @@ function ChangePassword() {
         console.log("Incorrect password");
         return;
       }
-
+console.log(data);
       const updatedUser = {
-        ...state,
+        
         password: data.newPassword,
       };
       const response = await updateUser(userId, updatedUser); 

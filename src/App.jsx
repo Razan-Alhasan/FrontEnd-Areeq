@@ -18,6 +18,7 @@ import AddOffer from './components/AddOffer/AddOffer';
 import RateReview from './components/RateReview/RateReview';
 import ChangePassword from './components/changePassword/ChangePassword';
 import CategoryPage from './components/CategoryPage/CategoryPage';
+// import Navbar from './components/CategoryPage/CategoryNavbar/CategoryNavbar';
 
 function App() {
 
@@ -41,7 +42,9 @@ function App() {
         { path: '/FrontEnd-Areeq/editprofile/:userId', element: <EditProfile /> },
         { path: '/FrontEnd-Areeq/category/:categoryName', element: <CategoryPage /> },
         { path: '/FrontEnd-Areeq/changePassword/:userId', element: <ChangePassword /> },
+        // { path: '/FrontEnd-Areeq/CategoryNavbar/:categoryName', element: <CategoryNavbar /> },
         { path: '/FrontEnd-Areeq/*', element: <PageNotFound /> },
+
       ]
     }
   ]);

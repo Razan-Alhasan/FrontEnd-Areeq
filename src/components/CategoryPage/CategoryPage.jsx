@@ -40,7 +40,6 @@ const CategoryPage = () => {
   }
   setSortedProducts(sorted);
       };
-
       const handleSortByAlphabet = (sortOption) => {
         let sorted;
   if (sortOption === 'a-to-z') {
