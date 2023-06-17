@@ -10,6 +10,12 @@ import { useParams, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
 function EditProfile() {
+  const [UserData, setUserData] = useState({
+    firstName: "",
+    lastName: "",
+    link: "",
+    description: "",
+  });
   const navigate = useNavigate();
   const fileInputRef = useRef(null);
   const [state, setState] = useState({});
@@ -24,9 +30,11 @@ function EditProfile() {
     const fetchUser = async () => {
       try {
         const user = await getUserById(userId);
+        console.log(user);
+        console.log(userId);
+        setUserData(user);
         setValue("firstName", user.firstName);
         setValue("lastName", user.lastName);
-        setValue("email", user.email);
         setValue("link", user.link);
         setValue("description", user.description);
         setState(user);
@@ -35,7 +43,7 @@ function EditProfile() {
       }
     };
     fetchUser();
-  }, [userId, setValue]);
+  }, []);
 
   const handleFormSubmit = async (data) => {
     try {
@@ -43,7 +51,6 @@ function EditProfile() {
         ...state,
         firstName: data.firstName,
         lastName: data.lastName,
-        email: data.email,
         link: data.link,
         description: data.description,
       };
@@ -83,6 +90,7 @@ function EditProfile() {
               fullWidth
               id="firstName"
               name="firstName"
+              value={ UserData.firstName}
               {...register("firstName")}
               error={errors.firstName ? true : false}
               label="First Name"
@@ -97,7 +105,8 @@ function EditProfile() {
               fullWidth
               id="lastName"
               name="lastName"
-              {...register("lastName")}
+              value={UserData.lastName}
+                            {...register("lastName")}
               error={errors.lastName ? true : false}
               label="Last Name"
             />
@@ -106,32 +115,13 @@ function EditProfile() {
             )}
           </div>
           <div className="form-field">
-            <InputLabel htmlFor="email">Email</InputLabel>
-            <OutlinedInput
-              fullWidth
-              id="email"
-              name="email"
-              autoComplete="email"
-              {...register("email", {
-                pattern: {
-                  value: /\S+@\S+\.\S+/,
-                  message: "Invalid email format",
-                },
-              })}
-              error={errors.email ? true : false}
-              label="Email"
-            />
-            {errors.email && (
-              <span className="error-message">{errors.email.message}</span>
-            )}
-          </div>
-          <div className="form-field">
-            <InputLabel htmlFor="link">Link</InputLabel>
+            <InputLabel htmlFor="link">Social Link</InputLabel>
             <OutlinedInput
               fullWidth
               id="link"
               name="link"
-              autoComplete="link"
+              value={UserData.link }
+               autoComplete="link"
               {...register("link", {
                 pattern: {
                   value: /^(ftp|http|https):\/\/[^ "]+$/,
@@ -151,6 +141,7 @@ function EditProfile() {
               fullWidth
               id="description"
               name="description"
+              value={UserData.description}
               multiline
               rows={4}
               {...register("description")}

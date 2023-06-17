@@ -34,7 +34,7 @@ const Seller = () => {
             const data = await getProducts({ user: userId });
             const filteredProducts = data.filter(product => !product.isArchived);
             setProducts(filteredProducts);
-            console.log(filteredProducts);
+            console.log(userId);
         };
         fetchData();
     }, []);
@@ -106,7 +106,7 @@ const Seller = () => {
                 </div>
                 { user.isSeller && <div className="btn-if-seller">
                     <div className="edit-seller">
-                        <Link to={`/FrontEnd-Areeq/EditProfile/${user.id}`}>
+                        <Link to={`/FrontEnd-Areeq/EditProfile/${user._id}`}>
                         <FontAwesomeIcon icon={ faGear } /><span className='edit-name'> Edit profile</span>
                         </Link>
                     </div>
