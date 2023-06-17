@@ -107,8 +107,6 @@ const Seller = () => {
                 { user.isSeller && <div className="btn-if-seller">
                     <div className="edit-seller">
                         <Link to={`/FrontEnd-Areeq/EditProfile/${user.id}`}>
-
-
                         <FontAwesomeIcon icon={ faGear } /><span className='edit-name'> Edit profile</span>
                         </Link>
                     </div>
@@ -132,7 +130,7 @@ const Seller = () => {
                     {products.map((product) => (
             <ImageListItem key={product._id} className='image-item'>
                                 <OptionsDropdown product={product}/>
-
+                                <Link to={`/FrontEnd-Areeq/product/${product._id}`}>
                                     <img
                                         src={ `${product.images[0]}?w=164&h=164&fit=crop&auto=format` }
                                         srcSet={ `${product.images[0]}?w=164&h=164&fit=crop&auto=format&dpr=2 2x` }
@@ -142,7 +140,8 @@ const Seller = () => {
                                     <div className="info-img ">
                                         <h3 className='title'>{ product.name }</h3>
                                         <p className='price'>{ product.price } nis</p>
-                                    </div>
+                                </div>
+                            </Link>
                                     { product && product.offer && (
                                         <div className="discount-seller-btn">
                                             <Discount product={ product } />

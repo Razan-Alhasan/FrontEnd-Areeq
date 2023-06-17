@@ -14,10 +14,13 @@ import SellerSignUp from './components/SellerSignUp/SellerSignUp';
 import HomePage from './components/HomePage/HomePage';
 import EditProfile from './components/editprofile/EditProfile';
 import AddProduct from './components/ProductPage/AddProduct/AddProduct';
-import AddOffer from './components/AddOffer/AddOffer';
+// import AddOffer from './components/AddOffer/AddOffer';
 import RateReview from './components/RateReview/RateReview';
 import ChangePassword from './components/changePassword/ChangePassword';
 import CategoryPage from './components/CategoryPage/CategoryPage';
+import Admin from './components/Admin/Admin';
+import Update from './components/Admin/Update/Update';
+import ChangePass from './components/Admin/ChangePass/ChangePass';
 // import Navbar from './components/CategoryPage/CategoryNavbar/CategoryNavbar';
 
 function App() {
@@ -37,7 +40,7 @@ function App() {
         { path: '/FrontEnd-Areeq/product/:productId', element: <ProductPage /> },
         { path: '/FrontEnd-Areeq/seller/:userId', element: <Seller /> },
         { path: '/FrontEnd-Areeq/addProduct', element: <AddProduct /> },
-        { path: '/FrontEnd-Areeq/addOffer', element: <AddOffer /> },
+        // { path: '/FrontEnd-Areeq/addOffer', element: <AddOffer /> },
         { path: '/FrontEnd-Areeq/review/:productId', element: <RateReview /> },
         { path: '/FrontEnd-Areeq/editprofile/:userId', element: <EditProfile /> },
         { path: '/FrontEnd-Areeq/category/:categoryName', element: <CategoryPage /> },
@@ -45,8 +48,11 @@ function App() {
         // { path: '/FrontEnd-Areeq/CategoryNavbar/:categoryName', element: <CategoryNavbar /> },
         { path: '/FrontEnd-Areeq/*', element: <PageNotFound /> },
 
-      ]
-    }
+      ],
+    },
+    { path: '/FrontEnd-Areeq/admin', element: <Admin /> },
+    { path: '/FrontEnd-Areeq/admin/update/:userId', element: <Update /> },
+    { path: '/FrontEnd-Areeq/admin/changePass/:userId', element: <ChangePass/> },
   ]);
   return (
     <RouterProvider router={ routers } />
