@@ -13,12 +13,14 @@ import RelatedItems from './RelatedItems/RelatedItems';
 const ProductPage = () => {
     const [product, setProduct] = useState(null);
     const [cookies, setCookie] = useCookies(['favorites']);
+    const userID = localStorage.getItem('userId');
     const { productId } = useParams();
     useEffect(() => {
         const fetchData = async () => {
             const data = await getProductById(productId);
             console.log(data);
             setProduct(data);
+            console.log(data)
         };
         fetchData();
     }, []);
@@ -44,7 +46,7 @@ const ProductPage = () => {
         <div>
             {/* <Link to="/product/edit"> */ }
             <div>
-                { product.user && product.user.isSeller && (
+                { product.user && (product.user.id === userID) && (
                     <div className="edit-icon">
                         <FontAwesomeIcon icon={ faPenToSquare } style={ { color: "#562b08" } } />
                     </div>

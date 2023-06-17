@@ -6,22 +6,22 @@
     border: 3px solid #ccc;
     border-radius:20px;
   }
-  label {
-    margin-right: 10px;
+.Navbar label {
+    margin-right: 1px !important;
   }
 .sortA-n{
     margin-left: 100px;
 }
 .sort-n{
-    margin-left: 900px;
+    margin-left: 675px;
 }
-  nav {
+ .Navbar nav {
     border-bottom: 1px solid #ccc;
   }
-  label {
+ .Navbar label {
     font-weight: bold;
   }
-  select {
+.Navbar  select {
     padding: 5px;
     border-radius: 4px;
     background-color: white;

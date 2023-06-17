@@ -1,5 +1,5 @@
 .seller-img {
-    width: 170px;
+    width: 200px;
     height: 170px;
     border-radius: 50%;
     margin-left: 6% !important;
@@ -7,8 +7,9 @@
 }
 
 .bio {
-    width: 30%;
-    margin-left: 2%;
+    width: 21%;
+    margin-left: 7%;
+    text-align: left;
 }
 
 .header {

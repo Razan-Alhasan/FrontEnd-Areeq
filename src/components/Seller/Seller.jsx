@@ -22,6 +22,7 @@ import Loading from '../Loading/Loading';
 const Seller = () => {
     const navigate = useNavigate();
     const { userId } = useParams();
+    const isUser = localStorage.getItem('userId');
     const [products, setProducts] = useState([]);
     const [user, setUser] = useState();
     const currentDate = new Date();
@@ -104,7 +105,7 @@ const Seller = () => {
                         </ul>
                     </div>
                 </div>
-                { user.isSeller && <div className="btn-if-seller">
+                { user.isSeller && isUser && <div className="btn-if-seller">
                     <div className="edit-seller">
                         <Link to={`/FrontEnd-Areeq/EditProfile/${user.id}`}>
                         <FontAwesomeIcon icon={ faGear } /><span className='edit-name'> Edit profile</span>
