@@ -41,11 +41,11 @@ function Mynav() {
               style={ { maxHeight: '100px' } }
               navbarScroll
             >
-              <Nav.Link as={ Link } to="/category/Home Decor" style={ { color: 'var(--main-color)', fontSize: '17.5px' } }>Home Decor</Nav.Link>
-              <Nav.Link as={ Link } to="/category/Clothes" style={ { color: 'var(--main-color)', fontSize: '17.5px' } }>Clothes</Nav.Link>
-              <Nav.Link as={ Link } to="/category/Accessories" style={ { color: 'var(--main-color)', fontSize: '17.5px' } }>Accessories</Nav.Link>
-              <Nav.Link as={ Link } to="/category/Soap" style={ { color: 'var(--main-color)', fontSize: '17.5px' } }>Soap</Nav.Link>
-              <Nav.Link as={ Link } to="/category/Ceramic" style={ { color: 'var(--main-color)', fontSize: '17.5px' } }>Ceramic</Nav.Link>
+              <Nav.Link as={ Link } to="category/Home Decor" style={ { color: 'var(--main-color)', fontSize: '17.5px' } }>Home Decor</Nav.Link>
+              <Nav.Link as={ Link } to="category/Clothes" style={ { color: 'var(--main-color)', fontSize: '17.5px' } }>Clothes</Nav.Link>
+              <Nav.Link as={ Link } to="category/Accessories" style={ { color: 'var(--main-color)', fontSize: '17.5px' } }>Accessories</Nav.Link>
+              <Nav.Link as={ Link } to="category/Soap" style={ { color: 'var(--main-color)', fontSize: '17.5px' } }>Soap</Nav.Link>
+              <Nav.Link as={ Link } to="category/Ceramic" style={ { color: 'var(--main-color)', fontSize: '17.5px' } }>Ceramic</Nav.Link>
             </Nav >
           </div>
 
