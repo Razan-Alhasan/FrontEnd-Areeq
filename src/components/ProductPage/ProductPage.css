@@ -12,7 +12,10 @@
     flex-direction: column;
     height: 100%;
 }
-
+.price-prod{
+    margin-top: 3%;
+    font-size: 25px;
+}
 img {
     width: 100%;
     display: block;

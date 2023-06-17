@@ -29,22 +29,32 @@ const SignIn = () => {
     const navigate = useNavigate();
     const onSubmit = async (data) => {
         try {
-            localStorage.removeItem('token');
-            localStorage.removeItem('userId');
-            const res = await login(data.email, data.password);
-            const token = res.token;
-            const userId = res.userId;
+            // localStorage.removeItem('token');
+            // localStorage.removeItem('userId');
+            // const res = await login(data.email, data.password);
+            console.log(data);
+            const {token, userId} = await login(data.email, data.password);
+            // console.log(res);
+            // const token = res.token;
+            // const userId = res.userId;
             localStorage.setItem('userId', userId);
-            console.log("user:" , res.userId);
+            // console.log("user:" , res.userId);
             localStorage.setItem('token', token);
+            const user = await getUserById(userId);
+            console.log("user: ", user);
             console.log('Successfully logged in!');
-            navigate(`/FrontEnd-Areeq/home`);
+            if (user.isAdmin) {
+                navigate(`/FrontEnd-Areeq/admin`);
+            }
+            else {
+                navigate(`/FrontEnd-Areeq/home`);
+            }
             Swal.fire({
                 position: 'center',
                 icon: 'success',
                 title: 'You have sign in successfuly',
                 showConfirmButton: false,
-                timer: 1500
+                timer: 3500
             });
         } catch (error) {
             console.log('Failed to log in:', error);

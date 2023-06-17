@@ -65,9 +65,9 @@ const ProductPage = () => {
                 </div>
                 <div className='base-image '>
                     <img src={ product.images[0] } />
-                    <div className="info-base">
+                    <div className="info-base d-flex justify-content-around">
                         <h2>{ product.name }</h2>
-                        <p>{ product.price } nis</p>
+                        <p className='price-prod'>{ product.price } nis</p>
                     </div>
                 </div>
             </div>

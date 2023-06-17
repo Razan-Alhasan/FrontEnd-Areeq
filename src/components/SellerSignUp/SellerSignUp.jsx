@@ -55,7 +55,7 @@ function SellerSignUp() {
         icon: "success",
         title: "You have signed up successfuly",
         showConfirmButton: false,
-        timer: 1500,
+        timer: 3500,
       });
       navigate(`/FrontEnd-Areeq/signin`);
     } catch (error) {
@@ -63,8 +63,9 @@ function SellerSignUp() {
     }
   };
   return (
-    <div className=" container-s  myborder  rounded">
+    <div className="body-signup">  
       <h1>Seller Sign Up</h1>
+    <div className=" container-s  myborder  rounded ">
       <form>
         <TextField
           fullWidth
@@ -181,7 +182,7 @@ function SellerSignUp() {
         <TextField
           fullWidth
           id="link"
-          label="Link"
+          label="Social Link"
           name="link"
           autoComplete="link"
           variant="outlined"
@@ -229,6 +230,7 @@ function SellerSignUp() {
           onClick={handleSubmit((data) => onSubmit(data))}
         /></div>
       </form>
+      </div>
     </div>
   );
 }

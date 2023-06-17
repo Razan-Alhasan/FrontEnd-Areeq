@@ -17,8 +17,8 @@ function AddOffer() {
   const onSubmit = async (data) => {
     try {
       
-      const token = await createOffer(data);
-      localStorage.setItem("token", JSON.stringify(token));
+      // const token = await createOffer(data);
+      // localStorage.setItem("token", JSON.stringify(token));
       console.log("Successfully created offer!");
       Swal.fire({
         position: "center",

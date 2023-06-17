@@ -1,0 +1,23 @@
+.container-admin body {
+    padding: 20px;
+}
+
+.container-admin {
+    margin: 1% 4%;
+}
+
+.container-admin h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: black;
+    border: 2px solid black;
+}
+
+.user-list {
+    margin-top: 20px;
+}
+
+.container-admin .btn {
+    margin-right: 5px;
+    vertical-align: auto;
+}
